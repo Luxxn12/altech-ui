@@ -5,12 +5,7 @@ export type ModalProps = DialogPrimitive.DialogProps;
 export type ModalTriggerProps = DialogPrimitive.DialogTriggerProps;
 export type ModalPortalProps = DialogPrimitive.DialogPortalProps;
 export type ModalCloseProps = DialogPrimitive.DialogCloseProps;
-export interface ModalOverlayProps {
-  className?: string;
-}
-export interface ModalContentProps {
-  className?: string;
-  children?: React.ReactNode;
-}
+export type ModalOverlayProps = DialogPrimitive.DialogOverlayProps;
+export type ModalContentProps = DialogPrimitive.DialogContentProps;
 export type ModalTitleProps = DialogPrimitive.DialogTitleProps;
 export type ModalDescriptionProps = DialogPrimitive.DialogDescriptionProps;

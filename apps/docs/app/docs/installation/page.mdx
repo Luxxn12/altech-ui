@@ -1,0 +1,42 @@
+import { Steps } from "nextra/components"
+
+export const metadata = {
+  title: "Installation"
+}
+
+# Installation
+
+Install Altech UI and import the style tokens once.
+
+## Install package
+
+```bash
+npm i @altech-ui/react
+```
+
+## Import styles
+
+```tsx filename="app/layout.tsx"
+import "@altech-ui/react/styles.css"
+```
+
+## Use your first component
+
+```tsx
+import { Button } from "@altech-ui/react"
+
+export default function Example() {
+  return <Button variant="primary">Hello Altech UI</Button>
+}
+```
+
+<Steps>
+### Install dependency
+Run `npm i @altech-ui/react` in your app.
+
+### Import token styles
+Import `@altech-ui/react/styles.css` once in your root layout.
+
+### Start building
+Use Altech UI components and customize with `className`.
+</Steps>

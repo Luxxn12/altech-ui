@@ -1,0 +1,37 @@
+import { TabsDemo, TabsPlayground } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Tabs"
+}
+
+# Tabs
+
+Use Tabs to split related content into sections.
+
+<TabsDemo />
+
+## Interactive Playground
+
+<TabsPlayground />
+
+## Usage
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@altech-ui/react"
+
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="billing">Billing</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">...</TabsContent>
+  <TabsContent value="billing">...</TabsContent>
+</Tabs>
+```
+
+## Props
+
+- `Tabs`: Radix Tabs `Root` props
+- `TabsList`: Radix Tabs `List` props
+- `TabsTrigger`: Radix Tabs `Trigger` props
+- `TabsContent`: Radix Tabs `Content` props

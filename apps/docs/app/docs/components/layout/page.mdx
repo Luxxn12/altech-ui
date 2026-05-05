@@ -1,0 +1,38 @@
+import { LayoutDemo } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Layout Primitives"
+}
+
+# Layout Primitives
+
+Use layout primitives to compose page structure quickly.
+
+<LayoutDemo />
+
+## Usage
+
+```tsx
+import { Container, Stack, Flex, Grid, Box } from "@altech-ui/react"
+
+<Container>
+  <Stack className="gap-4">
+    <Flex className="justify-between">...</Flex>
+    <Grid className="grid-cols-3 gap-3">
+      <Box>...</Box>
+    </Grid>
+  </Stack>
+</Container>
+```
+
+## Components
+
+- `Box`
+- `Flex`
+- `Grid`
+- `Stack`
+- `Container`
+
+## Props
+
+- `Box`, `Flex`, `Grid`, `Stack`, `Container`: native `div` props

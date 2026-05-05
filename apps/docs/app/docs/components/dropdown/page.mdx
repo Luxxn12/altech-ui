@@ -1,0 +1,33 @@
+import { DropdownDemo } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Dropdown"
+}
+
+# Dropdown
+
+Use Dropdown for compact action menus.
+
+<DropdownDemo />
+
+## Usage
+
+```tsx
+import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@altech-ui/react"
+
+<Dropdown>
+  <DropdownTrigger>Open</DropdownTrigger>
+  <DropdownContent>
+    <DropdownItem>Profile</DropdownItem>
+    <DropdownItem>Settings</DropdownItem>
+    <DropdownItem>Sign out</DropdownItem>
+  </DropdownContent>
+</Dropdown>
+```
+
+## Props
+
+- `Dropdown`: Radix DropdownMenu `Root` props
+- `DropdownTrigger`: Radix DropdownMenu `Trigger` props
+- `DropdownContent`: Radix DropdownMenu `Content` props
+- `DropdownItem`: Radix DropdownMenu `Item` props

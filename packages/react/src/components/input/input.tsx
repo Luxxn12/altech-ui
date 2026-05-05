@@ -52,7 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           aria-invalid={Boolean(error)}
           aria-describedby={message ? descriptionId : undefined}
           className={cn(
-            "h-11 w-full rounded-2xl border bg-[color:var(--altech-background)] px-4 text-sm text-[color:var(--altech-foreground)] outline-none transition-[border-color,box-shadow,background-color,color] duration-200 ease-out placeholder:text-[color:color-mix(in_oklab,var(--altech-foreground)_55%,transparent)] focus-visible:border-[color:var(--altech-primary)] focus-visible:ring-4 focus-visible:ring-[color:color-mix(in_oklab,var(--altech-primary)_18%,transparent)] disabled:cursor-not-allowed disabled:opacity-55",
+            "h-11 w-full rounded-[var(--altech-radius,10px)] border bg-[color:var(--altech-background)] px-4 text-sm text-[color:var(--altech-foreground)] outline-none transition-[border-color,box-shadow,background-color,color] duration-200 ease-out placeholder:text-[color:color-mix(in_oklab,var(--altech-foreground)_55%,transparent)] focus-visible:border-[color:var(--altech-primary)] focus-visible:ring-4 focus-visible:ring-[color:color-mix(in_oklab,var(--altech-primary)_18%,transparent)] disabled:cursor-not-allowed disabled:opacity-55",
             error
               ? "border-[color:var(--altech-danger)] focus-visible:border-[color:var(--altech-danger)] focus-visible:ring-[color:color-mix(in_oklab,var(--altech-danger)_18%,transparent)]"
               : "border-[color:var(--altech-border)]",

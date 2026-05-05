@@ -136,6 +136,7 @@ Semua komponen:
 :root {
   --altech-background: #f7fafc;
   --altech-foreground: #0e1628;
+  --altech-radius: 10px;
   --altech-primary: #0f62fe;
   --altech-primary-foreground: #f8fbff;
   --altech-muted: #e9effa;

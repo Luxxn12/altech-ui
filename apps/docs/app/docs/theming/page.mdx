@@ -1,0 +1,36 @@
+export const metadata = {
+  title: "Theming"
+}
+
+# Theming
+
+Altech UI uses CSS variables for design tokens. Override these values in your app to customize brand colors.
+
+```css
+:root {
+  --altech-background: #f7fafc;
+  --altech-foreground: #0e1628;
+  --altech-radius: 10px;
+  --altech-primary: #0f62fe;
+  --altech-primary-foreground: #f8fbff;
+  --altech-muted: #e9effa;
+  --altech-border: #d5dfef;
+  --altech-danger: #d92d20;
+  --altech-success: #12b76a;
+  --altech-warning: #f79009;
+}
+```
+
+## Styling strategy
+
+- Keep color tokens semantic.
+- Use Tailwind utility classes for layout and spacing.
+- Use `className` prop to override component visuals per usage context.
+
+## Tailwind usage
+
+Altech UI is designed to work naturally with Tailwind classes:
+
+```tsx
+<Button className="rounded-full px-7 shadow-lg">Custom CTA</Button>
+```

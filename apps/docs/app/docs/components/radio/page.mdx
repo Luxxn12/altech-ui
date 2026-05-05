@@ -1,0 +1,31 @@
+import { RadioDemo } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Radio"
+}
+
+# Radio
+
+Use Radio when users must select only one option.
+
+<RadioDemo />
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioItem } from "@altech-ui/react"
+
+<RadioGroup defaultValue="starter" className="grid gap-2">
+  <label className="inline-flex items-center gap-2 text-sm">
+    <RadioItem value="starter" /> Starter
+  </label>
+  <label className="inline-flex items-center gap-2 text-sm">
+    <RadioItem value="pro" /> Pro
+  </label>
+</RadioGroup>
+```
+
+## Props
+
+- `RadioGroup`: Radix RadioGroup `Root` props
+- `RadioItem`: Radix RadioGroup `Item` props

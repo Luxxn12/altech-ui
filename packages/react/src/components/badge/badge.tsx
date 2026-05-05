@@ -5,7 +5,7 @@ import { cn } from "../../utils/cn";
 import type { BadgeProps } from "./badge.types";
 
 export const badgeVariants = cva(
-  "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium transition-colors duration-200",
+  "inline-flex items-center rounded-[var(--altech-radius,10px)] px-2.5 py-1 text-xs font-medium transition-colors duration-200",
   {
     variants: {
       variant: {

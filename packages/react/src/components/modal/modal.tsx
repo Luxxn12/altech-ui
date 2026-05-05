@@ -1,7 +1,7 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import * as React from "react";
 
 import { cn } from "../../utils/cn";
@@ -30,11 +30,11 @@ export const ModalPortal = ({ children, ...props }: ModalPortalProps) => (
 );
 
 export const ModalOverlay = React.forwardRef<HTMLDivElement, ModalOverlayProps>(
-  ({ className }, ref) => {
+  ({ className, ...props }, ref) => {
     const prefersReducedMotion = useReducedMotion();
 
     return (
-      <DialogPrimitive.Overlay asChild forceMount>
+      <DialogPrimitive.Overlay asChild {...props}>
         <motion.div
           ref={ref}
           className={cn("fixed inset-0 z-50 bg-black/45 backdrop-blur-[2px]", className)}
@@ -51,29 +51,26 @@ export const ModalOverlay = React.forwardRef<HTMLDivElement, ModalOverlayProps>(
 ModalOverlay.displayName = "ModalOverlay";
 
 export const ModalContent = React.forwardRef<HTMLDivElement, ModalContentProps>(
-  ({ className, children }, ref) => {
+  ({ className, children, ...props }, ref) => {
     const prefersReducedMotion = useReducedMotion();
 
     return (
-      <ModalPortal forceMount>
-        <AnimatePresence>
-          <ModalOverlay />
-          <DialogPrimitive.Content asChild forceMount>
-            <motion.div
-              ref={ref}
-              className={cn(
-                "fixed left-1/2 top-1/2 z-50 w-[min(92vw,32rem)] -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-[color:var(--altech-border)] bg-[color:var(--altech-background)] p-6 shadow-2xl outline-none",
-                className,
-              )}
-              initial={{ opacity: 0, scale: 0.95, y: 14 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={{ duration: prefersReducedMotion ? 0 : 0.22, ease: "easeOut" }}
-            >
-              {children}
-            </motion.div>
-          </DialogPrimitive.Content>
-        </AnimatePresence>
+      <ModalPortal>
+        <ModalOverlay />
+        <DialogPrimitive.Content asChild {...props}>
+          <motion.div
+            ref={ref}
+            className={cn(
+              "fixed left-1/2 top-1/2 z-50 w-[min(92vw,32rem)] -translate-x-1/2 -translate-y-1/2 rounded-[var(--altech-radius,10px)] border border-[color:var(--altech-border)] bg-[color:var(--altech-background)] p-6 shadow-2xl outline-none",
+              className,
+            )}
+            initial={{ opacity: 0, scale: 0.95, y: 14 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.22, ease: "easeOut" }}
+          >
+            {children}
+          </motion.div>
+        </DialogPrimitive.Content>
       </ModalPortal>
     );
   },

@@ -1,0 +1,31 @@
+import { TooltipDemo } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Tooltip"
+}
+
+# Tooltip
+
+Use Tooltip for concise contextual hints.
+
+<TooltipDemo />
+
+## Usage
+
+```tsx
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@altech-ui/react"
+
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>Hover</TooltipTrigger>
+    <TooltipContent>Hint text</TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## Props
+
+- `TooltipProvider`: Radix Tooltip `Provider` props
+- `Tooltip`: Radix Tooltip `Root` props
+- `TooltipTrigger`: Radix Tooltip `Trigger` props
+- `TooltipContent`: Radix Tooltip `Content` props

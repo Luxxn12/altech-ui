@@ -1,0 +1,38 @@
+import { SelectDemo, SelectPlayground } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Select"
+}
+
+# Select
+
+Use Select for a styled single-choice list.
+
+<SelectDemo />
+
+## Interactive Playground
+
+<SelectPlayground />
+
+## Usage
+
+```tsx
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@altech-ui/react"
+
+<Select>
+  <SelectTrigger>
+    <SelectValue placeholder="Choose plan" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="starter">Starter</SelectItem>
+    <SelectItem value="pro">Pro</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Props
+
+- `Select`: Radix Select `Root` props
+- `SelectTrigger`: Radix Select `Trigger` props
+- `SelectContent`: Radix Select `Content` props
+- `SelectItem`: Radix Select `Item` props

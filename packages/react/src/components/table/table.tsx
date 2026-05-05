@@ -14,7 +14,7 @@ import type {
 
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({ className, ...props }, ref) => (
-    <div className="w-full overflow-x-auto rounded-2xl border border-[color:var(--altech-border)]">
+    <div className="w-full overflow-x-auto rounded-[var(--altech-radius,10px)] border border-[color:var(--altech-border)]">
       <table
         ref={ref}
         className={cn("w-full caption-bottom text-sm", className)}

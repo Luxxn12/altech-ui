@@ -1,0 +1,36 @@
+import { InputDemo, InputPlayground } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Input"
+}
+
+# Input
+
+Input includes label, helper/error messages, and state transitions.
+
+<InputDemo />
+
+## Interactive Playground
+
+<InputPlayground />
+
+## Usage
+
+```tsx
+import { Input } from "@altech-ui/react"
+
+<Input placeholder="Enter your email" />
+<Input label="Email" placeholder="email@example.com" />
+<Input error="Email is required" />
+<Input isDisabled />
+```
+
+## Props
+
+- `label?`: `string`
+- `placeholder?`: `string`
+- `error?`: `string`
+- `helperText?`: `string`
+- `isDisabled?`: `boolean`
+- `className?`: `string`
+- Native `input` props

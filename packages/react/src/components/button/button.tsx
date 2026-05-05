@@ -8,7 +8,7 @@ import { cn } from "../../utils/cn";
 import type { ButtonProps } from "./button.types";
 
 export const buttonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl font-medium outline-none transition-[transform,box-shadow,background-color,color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[color:var(--altech-primary)] focus-visible:ring-offset-2 ring-offset-[color:var(--altech-background)] disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--altech-radius,10px)] font-medium outline-none transition-[transform,box-shadow,background-color,color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[color:var(--altech-primary)] focus-visible:ring-offset-2 ring-offset-[color:var(--altech-background)] disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -132,7 +132,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ) : null}
             {children}
           </span>
-          <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl" aria-hidden="true">
+          <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[var(--altech-radius,10px)]" aria-hidden="true">
             {ripples.map((ripple) => (
               <motion.span
                 key={ripple.id}

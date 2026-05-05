@@ -1,42 +1,39 @@
 @import "tailwindcss";
+@import "nextra-theme-docs/style.css";
 @source "../../../packages/react/src/**/*.{ts,tsx}";
-
-@import "@altech-ui/react/styles.css";
+@source "../../../packages/react/dist/**/*.{js,mjs}";
+@source "../../node_modules/@altech-ui/react/dist/**/*.{js,mjs}";
 
 :root {
-  --docs-bg-1: #f6fbff;
-  --docs-bg-2: #edf4ff;
-  --docs-panel: rgba(255, 255, 255, 0.72);
-  --docs-panel-strong: rgba(255, 255, 255, 0.92);
+  --font-sans: "Manrope", "Segoe UI", sans-serif;
+  --font-heading: "Space Grotesk", "Segoe UI", sans-serif;
+  --altech-background: #f7fafc;
+  --altech-foreground: #0e1628;
+  --altech-radius: 10px;
+  --altech-primary: #0f62fe;
+  --altech-primary-foreground: #f8fbff;
+  --altech-muted: #e9effa;
+  --altech-border: #d5dfef;
+  --altech-danger: #d92d20;
+  --altech-success: #12b76a;
+  --altech-warning: #f79009;
 }
 
 .dark,
 [data-theme="dark"] {
-  --docs-bg-1: #050a15;
-  --docs-bg-2: #0d1730;
-  --docs-panel: rgba(9, 15, 29, 0.74);
-  --docs-panel-strong: rgba(9, 15, 29, 0.95);
+  --altech-background: #090f1d;
+  --altech-foreground: #edf3ff;
+  --altech-primary: #5b8dff;
+  --altech-primary-foreground: #07102a;
+  --altech-muted: #131e35;
+  --altech-border: #263250;
+  --altech-danger: #f97066;
+  --altech-success: #32d583;
+  --altech-warning: #fdb022;
 }
 
 html,
 body {
+  margin: 0;
   min-height: 100%;
-}
-
-body {
-  font-family: "Sora", "Plus Jakarta Sans", "Segoe UI", sans-serif;
-  background:
-    radial-gradient(1200px 700px at 0% -10%, color-mix(in srgb, var(--altech-primary) 18%, transparent), transparent 65%),
-    radial-gradient(1000px 500px at 100% 0%, color-mix(in srgb, var(--altech-success) 12%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--docs-bg-1), var(--docs-bg-2));
-}
-
-.altech-card {
-  background: var(--docs-panel-strong);
-  backdrop-filter: blur(16px);
-}
-
-.docs-shell {
-  background: var(--docs-panel);
-  backdrop-filter: blur(14px);
 }

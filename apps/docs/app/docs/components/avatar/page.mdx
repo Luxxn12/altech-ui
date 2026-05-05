@@ -1,0 +1,28 @@
+import { AvatarDemo } from "@/components/component-demos"
+
+export const metadata = {
+  title: "Avatar"
+}
+
+# Avatar
+
+Use Avatar for user identity visuals with image or fallback text.
+
+<AvatarDemo />
+
+## Usage
+
+```tsx
+import { Avatar } from "@altech-ui/react"
+
+<Avatar src="https://i.pravatar.cc/80?img=12" alt="User" />
+<Avatar alt="Lukman" fallback="LU" />
+<Avatar className="size-12" alt="Nina" fallback="NI" />
+```
+
+## Props
+
+- `src?`: `string`
+- `alt?`: `string`
+- `fallback?`: `ReactNode`
+- Native `div` props
