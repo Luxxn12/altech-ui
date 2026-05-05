@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@source "../../../packages/react/src/**/*.{ts,tsx}";
+
+@import "@altech-ui/react/styles.css";
+
+:root {
+  --docs-bg-1: #f6fbff;
+  --docs-bg-2: #edf4ff;
+  --docs-panel: rgba(255, 255, 255, 0.72);
+  --docs-panel-strong: rgba(255, 255, 255, 0.92);
+}
+
+.dark,
+[data-theme="dark"] {
+  --docs-bg-1: #050a15;
+  --docs-bg-2: #0d1730;
+  --docs-panel: rgba(9, 15, 29, 0.74);
+  --docs-panel-strong: rgba(9, 15, 29, 0.95);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Sora", "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1200px 700px at 0% -10%, color-mix(in srgb, var(--altech-primary) 18%, transparent), transparent 65%),
+    radial-gradient(1000px 500px at 100% 0%, color-mix(in srgb, var(--altech-success) 12%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--docs-bg-1), var(--docs-bg-2));
+}
+
+.altech-card {
+  background: var(--docs-panel-strong);
+  backdrop-filter: blur(16px);
+}
+
+.docs-shell {
+  background: var(--docs-panel);
+  backdrop-filter: blur(14px);
+}

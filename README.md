@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Altech UI
 
-## Getting Started
+Altech UI adalah monorepo untuk component library React + TypeScript dengan docs site modern.
 
-First, run the development server:
+## Packages
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- `@altech-ui/react`: reusable UI components (typed, accessible, animated).
+- `@altech-ui/docs`: website dokumentasi berbasis Next.js.
+
+## Tech Stack
+
+- pnpm workspace
+- Turborepo
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Next.js (docs app)
+- tsup (library build)
+- ESLint + Prettier
+- Framer Motion
+- Radix UI (Dialog primitive)
+- class-variance-authority + clsx + tailwind-merge
+
+## Struktur
+
+```txt
+altech-ui/
+  apps/
+    docs/
+      app/
+      components/
+      content/
+      package.json
+  packages/
+    react/
+      src/
+        components/
+          button/
+          input/
+          card/
+          badge/
+          table/
+          modal/
+        hooks/
+        utils/
+        styles/
+        index.ts
+      package.json
+      tsconfig.json
+      tsup.config.ts
+  package.json
+  pnpm-workspace.yaml
+  turbo.json
+  README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quick Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Perintah utama:
 
-## Learn More
+```bash
+pnpm dev
+pnpm build
+pnpm lint
+pnpm typecheck
+pnpm release
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Install Library
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm add @altech-ui/react
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Import style token sekali di app:
 
-## Deploy on Vercel
+```ts
+import "@altech-ui/react/styles.css";
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contoh Pakai
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+import { Button, Input, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@altech-ui/react";
+
+export function Example() {
+  return (
+    <div className="space-y-4">
+      <Button variant="primary">Primary</Button>
+      <Input label="Email" placeholder="email@example.com" />
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>Lukman</TableCell>
+            <TableCell>lukman@example.com</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
+```
+
+## Komponen Saat Ini
+
+- Button
+- Input
+- Card
+- Badge
+- Table
+- Modal
+
+Semua komponen:
+
+- support `className` override
+- typed dengan TypeScript
+- menggunakan `forwardRef` untuk elemen yang butuh ref
+- variant system dengan `class-variance-authority`
+- util `cn()` (`clsx` + `tailwind-merge`)
+- animasi micro-interaction (hover/tap/focus/open/close) + `prefers-reduced-motion`
+
+## Theming Tokens
+
+```css
+:root {
+  --altech-background: #f7fafc;
+  --altech-foreground: #0e1628;
+  --altech-primary: #0f62fe;
+  --altech-primary-foreground: #f8fbff;
+  --altech-muted: #e9effa;
+  --altech-border: #d5dfef;
+  --altech-danger: #d92d20;
+  --altech-success: #12b76a;
+  --altech-warning: #f79009;
+}
+```
+
+## Publish ke npm
+
+1. Login npm:
+
+```bash
+npm login
+```
+
+2. Pastikan versi package sudah benar di `packages/react/package.json`.
+
+3. Build + verifikasi:
+
+```bash
+pnpm build
+pnpm lint
+pnpm typecheck
+```
+
+4. Publish package:
+
+```bash
+pnpm --filter @altech-ui/react publish --access public
+```
+
+Atau gunakan script:
+
+```bash
+pnpm release
+```
+
+## Development Notes
+
+- Docs app berjalan di `apps/docs`.
+- Library output:
+  - `dist/index.js`
+  - `dist/index.mjs`
+  - `dist/index.d.ts`
+  - `dist/styles.css`
+
+## License
+
+MIT

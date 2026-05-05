@@ -1,0 +1,28 @@
+{
+  "name": "@altech-ui/docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@altech-ui/react": "workspace:*",
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.26.0",
+    "eslint-config-next": "16.2.4",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3"
+  }
+}
