@@ -1,6 +1,9 @@
 import type { HTMLAttributes, TableHTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from "react";
 
-export type TableProps = TableHTMLAttributes<HTMLTableElement>;
+export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+  variant?: "default" | "striped" | "bordered" | "minimal";
+  density?: "sm" | "md" | "lg";
+}
 
 export type TableHeaderProps = HTMLAttributes<HTMLTableSectionElement>;
 

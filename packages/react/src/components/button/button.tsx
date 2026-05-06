@@ -27,7 +27,8 @@ export const buttonVariants = cva(
       size: {
         sm: "h-9 px-3 text-xs",
         md: "h-11 px-4 text-sm",
-        lg: "h-12 px-6 text-base"
+        lg: "h-12 px-6 text-base",
+        icon: "size-11 p-0"
       }
     },
     defaultVariants: {
@@ -50,7 +51,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       variant,
       size,
+      loading,
       isLoading,
+      loadingText,
+      fullWidth,
+      startIcon,
+      endIcon,
       disabled,
       children,
       onClick,
@@ -87,19 +93,22 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       [prefersReducedMotion],
     );
 
-    const isDisabled = disabled || isLoading;
+    const isBusy = loading ?? isLoading ?? false;
+    const isDisabled = disabled || isBusy;
 
     return (
       <motion.div
-        className="inline-flex"
+        className={cn("inline-flex", fullWidth && "w-full")}
         whileHover={!isDisabled && !prefersReducedMotion ? { scale: 1.02, y: -1 } : undefined}
         whileTap={!isDisabled && !prefersReducedMotion ? { scale: 0.97, y: 0 } : undefined}
         transition={{ duration: 0.2, ease: "easeOut" }}
       >
         <button
           ref={ref}
-          className={cn(buttonVariants({ variant, size }), className)}
+          type="button"
+          className={cn(buttonVariants({ variant, size }), fullWidth && "w-full", className)}
           disabled={isDisabled}
+          aria-busy={isBusy}
           onClick={(event) => {
             createRipple(event);
             onClick?.(event);
@@ -107,7 +116,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {...props}
         >
           <span className="relative z-10 inline-flex items-center gap-2">
-            {isLoading ? (
+            {isBusy ? (
               <svg
                 className="size-4 animate-spin"
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,8 +138,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                   d="M4 12a8 8 0 0 1 8-8v4a4 4 0 0 0-4 4H4z"
                 />
               </svg>
-            ) : null}
-            {children}
+            ) : startIcon ? <span aria-hidden="true">{startIcon}</span> : null}
+            {isBusy && loadingText ? loadingText : children}
+            {endIcon && !isBusy ? <span aria-hidden="true">{endIcon}</span> : null}
           </span>
           <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[var(--altech-radius,10px)]" aria-hidden="true">
             {ripples.map((ripple) => (

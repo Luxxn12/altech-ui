@@ -1,9 +1,12 @@
+import type { VariantProps } from "class-variance-authority";
 import type { HTMLAttributes } from "react";
 
-export type CardProps = HTMLAttributes<HTMLDivElement>;
+import type { cardContentVariants, cardFooterVariants, cardHeaderVariants, cardVariants } from "./card";
 
-export type CardHeaderProps = HTMLAttributes<HTMLDivElement>;
+export interface CardProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {}
 
-export type CardContentProps = HTMLAttributes<HTMLDivElement>;
+export interface CardHeaderProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardHeaderVariants> {}
 
-export type CardFooterProps = HTMLAttributes<HTMLDivElement>;
+export interface CardContentProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardContentVariants> {}
+
+export interface CardFooterProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardFooterVariants> {}

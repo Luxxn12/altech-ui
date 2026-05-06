@@ -1,4 +1,17 @@
-import { ButtonDemo, ButtonPlayground } from "@/components/demos/button-demos"
+import {
+  ButtonActionRowDemo,
+  ButtonAsyncListDemo,
+  ButtonDemo,
+  ButtonFullWidthDemo,
+  ButtonGroupDemo,
+  ButtonIconOnlyDemo,
+  ButtonPlayground,
+  ButtonSizesDemo,
+  ButtonSplitActionDemo,
+  ButtonStateDemo,
+  ButtonVariantsDemo,
+  ButtonWithIconDemo
+} from "@/components/demos/button-demos"
 
 export const metadata = {
   title: "Button"
@@ -6,31 +19,176 @@ export const metadata = {
 
 # Button
 
-Buttons support variants, sizes, loading state, and micro-interactions.
+Button dipakai untuk trigger aksi utama dan sekunder. Halaman ini dibuat sebagai referensi praktis: banyak variasi preview + snippet siap copy.
+
+## Quick Preview
 
 <ButtonDemo />
 
 ## Interactive Playground
 
-Try editing props below and the preview will update instantly:
+Ubah prop secara langsung, lalu copy generated code untuk dipakai di project Anda.
 
 <ButtonPlayground />
 
-## Usage
+## Import
 
 ```tsx
 import { Button } from "@altech-ui/react"
+```
 
-<Button>Default</Button>
+## Variants
+
+<ButtonVariantsDemo />
+
+```tsx
+<Button variant="default">Default</Button>
 <Button variant="primary">Primary</Button>
 <Button variant="secondary">Secondary</Button>
 <Button variant="outline">Outline</Button>
 <Button variant="ghost">Ghost</Button>
 <Button variant="danger">Danger</Button>
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
-<Button isLoading>Loading</Button>
+```
+
+## Sizes
+
+<ButtonSizesDemo />
+
+```tsx
+<Button size="sm" variant="primary">Small</Button>
+<Button size="md" variant="primary">Medium</Button>
+<Button size="lg" variant="primary">Large</Button>
+```
+
+## States
+
+<ButtonStateDemo />
+
+```tsx
+<Button variant="primary">Normal</Button>
+<Button variant="primary" isLoading>Saving</Button>
+<Button variant="primary" disabled>Disabled</Button>
+```
+
+## Grouped Controls
+
+<ButtonGroupDemo />
+
+```tsx
+<div className="inline-flex overflow-hidden rounded-xl border border-black/10">
+  <Button variant="ghost" className="rounded-none border-r border-black/10">Day</Button>
+  <Button variant="primary" className="rounded-none border-r border-black/10">Week</Button>
+  <Button variant="ghost" className="rounded-none">Month</Button>
+</div>
+```
+
+## Action Row Pattern
+
+<ButtonActionRowDemo />
+
+```tsx
+<div className="flex gap-3">
+  <Button variant="ghost">Cancel</Button>
+  <Button variant="secondary">Save Draft</Button>
+  <Button variant="primary">Publish</Button>
+</div>
+```
+
+## Icon Only Buttons
+
+<ButtonIconOnlyDemo />
+
+```tsx
+<Button variant="outline" aria-label="Download" className="h-11 w-11 p-0">
+  <DownloadIcon />
+</Button>
+<Button variant="ghost" aria-label="Settings" className="h-11 w-11 p-0">
+  <SettingsIcon />
+</Button>
+```
+
+## Icon + Label
+
+<ButtonWithIconDemo />
+
+```tsx
+<Button variant="primary">
+  <PlusIcon />
+  Add item
+</Button>
+
+<Button variant="secondary">
+  Export
+  <DownloadIcon />
+</Button>
+```
+
+## Full Width CTA
+
+<ButtonFullWidthDemo />
+
+```tsx
+<Button variant="primary" className="w-full">Continue checkout</Button>
+<Button variant="outline" className="w-full">Continue with Google</Button>
+```
+
+## Async List Actions
+
+<ButtonAsyncListDemo />
+
+```tsx
+{items.map((item) => (
+  <Button
+    key={item.id}
+    size="sm"
+    variant="primary"
+    isLoading={loadingId === item.id}
+    onClick={() => handleGenerate(item.id)}
+  >
+    Generate
+  </Button>
+))}
+```
+
+## Split Action
+
+<ButtonSplitActionDemo />
+
+```tsx
+<div className="inline-flex overflow-hidden rounded-xl border border-black/10">
+  <Button variant="primary" className="rounded-none border-r border-black/10">Save</Button>
+  <Button variant="primary" className="rounded-none px-3" aria-label="More actions">
+    <ChevronDownIcon />
+  </Button>
+</div>
+```
+
+## Async Submit Pattern
+
+```tsx
+"use client"
+
+import { useState } from "react"
+import { Button } from "@altech-ui/react"
+
+export function SaveButton() {
+  const [saving, setSaving] = useState(false)
+
+  const handleSave = async () => {
+    setSaving(true)
+    try {
+      await fetch("/api/save", { method: "POST" })
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <Button variant="primary" isLoading={saving} onClick={handleSave}>
+      Save changes
+    </Button>
+  )
+}
 ```
 
 ## Props

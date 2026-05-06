@@ -6,6 +6,9 @@ export type ModalTriggerProps = DialogPrimitive.DialogTriggerProps;
 export type ModalPortalProps = DialogPrimitive.DialogPortalProps;
 export type ModalCloseProps = DialogPrimitive.DialogCloseProps;
 export type ModalOverlayProps = DialogPrimitive.DialogOverlayProps;
-export type ModalContentProps = DialogPrimitive.DialogContentProps;
+export interface ModalContentProps extends DialogPrimitive.DialogContentProps {
+  variant?: "default" | "elevated" | "danger" | "success";
+  size?: "sm" | "md" | "lg" | "xl";
+}
 export type ModalTitleProps = DialogPrimitive.DialogTitleProps;
 export type ModalDescriptionProps = DialogPrimitive.DialogDescriptionProps;

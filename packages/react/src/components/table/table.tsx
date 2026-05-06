@@ -1,5 +1,6 @@
 "use client";
 
+import { cva } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "../../utils/cn";
@@ -13,11 +14,11 @@ import type {
 } from "./table.types";
 
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
-  ({ className, ...props }, ref) => (
-    <div className="w-full overflow-x-auto rounded-[var(--altech-radius,10px)] border border-[color:var(--altech-border)]">
+  ({ className, variant, density, ...props }, ref) => (
+    <div className={cn(tableWrapVariants({ variant }))}>
       <table
         ref={ref}
-        className={cn("w-full caption-bottom text-sm", className)}
+        className={cn(tableVariants({ variant, density }), className)}
         {...props}
       />
     </div>
@@ -108,3 +109,38 @@ export const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
 );
 
 TableCell.displayName = "TableCell";
+
+const tableWrapVariants = cva("w-full overflow-x-auto rounded-[var(--altech-radius,10px)] border", {
+  variants: {
+    variant: {
+      default: "border-[color:var(--altech-border)]",
+      striped: "border-[color:var(--altech-border)]",
+      bordered: "border-2 border-[color:var(--altech-border)]",
+      minimal: "border-transparent"
+    }
+  },
+  defaultVariants: {
+    variant: "default"
+  }
+});
+
+const tableVariants = cva("w-full caption-bottom text-sm", {
+  variants: {
+    variant: {
+      default: "",
+      striped: "[&_tbody_tr:nth-child(even)]:bg-[color:color-mix(in_oklab,var(--altech-muted)_45%,transparent)]",
+      bordered:
+        "[&_th]:border-r [&_th:last-child]:border-r-0 [&_th]:border-[color:var(--altech-border)] [&_td]:border-r [&_td:last-child]:border-r-0 [&_td]:border-[color:var(--altech-border)]",
+      minimal: "[&_thead]:bg-transparent [&_tr]:border-[color:transparent]"
+    },
+    density: {
+      sm: "[&_th]:h-10 [&_th]:px-3 [&_td]:p-3 [&_th]:text-[11px]",
+      md: "",
+      lg: "[&_th]:h-14 [&_th]:px-5 [&_td]:p-5 [&_th]:text-sm"
+    }
+  },
+  defaultVariants: {
+    variant: "default",
+    density: "md"
+  }
+});

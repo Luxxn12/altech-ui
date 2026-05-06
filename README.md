@@ -1,11 +1,44 @@
 # Altech UI
 
-Altech UI adalah monorepo untuk component library React + TypeScript dengan docs site modern.
+Altech UI is a monorepo for a React + TypeScript component library with a modern documentation site.
+
+## Why Developers Choose Altech UI
+
+Altech UI is built for teams that want to ship UI faster without losing styling control.
+Instead of rebuilding common UI patterns from scratch, developers can focus on product logic.
+
+Core value:
+
+- less boilerplate for common components (button, input, modal, table, and more)
+- simple component APIs that stay flexible for real-world use cases
+- Tailwind-friendly by design via `className` overrides
+- typed, accessible, and consistent defaults across components
+
+## Key Advantages
+
+- Productivity-first:
+  - ready-to-use components, variants, and common states
+- Flexible styling:
+  - override with Tailwind utility classes whenever needed
+- TypeScript-first:
+  - stronger autocomplete and safer UI development
+- Consistent design primitives:
+  - centralized color/radius/border tokens
+- Better UX by default:
+  - micro-interactions + `prefers-reduced-motion` support
+- Easy adoption:
+  - can be adopted incrementally, no big-bang migration required
+
+## Best For
+
+- startup and product teams moving fast
+- freelancers or agencies that need high reusability across projects
+- internal teams that want UI standardization without limiting creativity
 
 ## Packages
 
 - `@altech-ui/react`: reusable UI components (typed, accessible, animated).
-- `@altech-ui/docs`: website dokumentasi berbasis Next.js.
+- `@altech-ui/docs`: documentation website built with Next.js.
 
 ## Tech Stack
 
@@ -21,7 +54,7 @@ Altech UI adalah monorepo untuk component library React + TypeScript dengan docs
 - Radix UI (Dialog primitive)
 - class-variance-authority + clsx + tailwind-merge
 
-## Struktur
+## Structure
 
 ```txt
 altech-ui/
@@ -61,7 +94,7 @@ pnpm install
 pnpm dev
 ```
 
-Perintah utama:
+Main scripts:
 
 ```bash
 pnpm dev
@@ -77,13 +110,13 @@ pnpm release
 pnpm add @altech-ui/react
 ```
 
-Import style token sekali di app:
+Import style tokens once in your app:
 
 ```ts
 import "@altech-ui/react/styles.css";
 ```
 
-## Contoh Pakai
+## Usage Example
 
 ```tsx
 import { Button, Input, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@altech-ui/react";
@@ -112,23 +145,34 @@ export function Example() {
 }
 ```
 
-## Komponen Saat Ini
+## Available Components
 
-- Button
-- Input
-- Card
+- Alert
+- Avatar
 - Badge
-- Table
+- Button
+- Card
+- Checkbox
+- Dropdown
+- Input
+- Layout (Box, Container, Flex, Grid, Stack)
 - Modal
+- Radio
+- Select
+- Switch
+- Table
+- Tabs
+- Textarea
+- Tooltip
 
-Semua komponen:
+All components:
 
-- support `className` override
-- typed dengan TypeScript
-- menggunakan `forwardRef` untuk elemen yang butuh ref
-- variant system dengan `class-variance-authority`
-- util `cn()` (`clsx` + `tailwind-merge`)
-- animasi micro-interaction (hover/tap/focus/open/close) + `prefers-reduced-motion`
+- support `className` overrides
+- are fully typed with TypeScript
+- use `forwardRef` where needed
+- use `class-variance-authority` for variants
+- use `cn()` (`clsx` + `tailwind-merge`)
+- include micro-interactions (hover/tap/focus/open/close) + `prefers-reduced-motion`
 
 ## Theming Tokens
 
@@ -147,17 +191,17 @@ Semua komponen:
 }
 ```
 
-## Publish ke npm
+## Publish to npm
 
-1. Login npm:
+1. Log in to npm:
 
 ```bash
 npm login
 ```
 
-2. Pastikan versi package sudah benar di `packages/react/package.json`.
+2. Ensure the package version is correct in `packages/react/package.json`.
 
-3. Build + verifikasi:
+3. Build + verify:
 
 ```bash
 pnpm build
@@ -165,13 +209,13 @@ pnpm lint
 pnpm typecheck
 ```
 
-4. Publish package:
+4. Publish the package:
 
 ```bash
 pnpm --filter @altech-ui/react publish --access public
 ```
 
-Atau gunakan script:
+Or use the release script:
 
 ```bash
 pnpm release
@@ -179,7 +223,7 @@ pnpm release
 
 ## Development Notes
 
-- Docs app berjalan di `apps/docs`.
+- The docs app runs in `apps/docs`.
 - Library output:
   - `dist/index.js`
   - `dist/index.mjs`

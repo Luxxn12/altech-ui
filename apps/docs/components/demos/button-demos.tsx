@@ -19,6 +19,176 @@ export function ButtonDemo() {
   );
 }
 
+export function ButtonVariantsDemo() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Button variant="default">Default</Button>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="danger">Danger</Button>
+    </div>
+  );
+}
+
+export function ButtonSizesDemo() {
+  return (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button size="sm" variant="primary">Small</Button>
+      <Button size="md" variant="primary">Medium</Button>
+      <Button size="lg" variant="primary">Large</Button>
+    </div>
+  );
+}
+
+export function ButtonStateDemo() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Button variant="primary">Normal</Button>
+      <Button variant="primary" isLoading>
+        Saving
+      </Button>
+      <Button variant="primary" disabled>
+        Disabled
+      </Button>
+    </div>
+  );
+}
+
+export function ButtonGroupDemo() {
+  return (
+    <div className="inline-flex overflow-hidden rounded-xl border border-black/10 dark:border-white/20">
+      <Button variant="ghost" className="rounded-none border-r border-black/10 dark:border-white/20">
+        Day
+      </Button>
+      <Button variant="primary" className="rounded-none border-r border-black/10 dark:border-white/20">
+        Week
+      </Button>
+      <Button variant="ghost" className="rounded-none">
+        Month
+      </Button>
+    </div>
+  );
+}
+
+export function ButtonActionRowDemo() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Button variant="ghost">Cancel</Button>
+      <Button variant="secondary">Save Draft</Button>
+      <Button variant="primary">Publish</Button>
+    </div>
+  );
+}
+
+export function ButtonIconOnlyDemo() {
+  return (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button
+        variant="outline"
+        aria-label="Download"
+        className="h-11 w-11 p-0"
+      >
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="M12 4v10" />
+          <path d="m8 10 4 4 4-4" />
+          <path d="M4 19h16" />
+        </svg>
+      </Button>
+      <Button variant="ghost" aria-label="Settings" className="h-11 w-11 p-0">
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 0 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 0 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 .9-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 0 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5.9H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z" />
+        </svg>
+      </Button>
+    </div>
+  );
+}
+
+export function ButtonWithIconDemo() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Button variant="primary">
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="M5 12h14" />
+          <path d="M12 5v14" />
+        </svg>
+        Add item
+      </Button>
+      <Button variant="secondary">
+        Export
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="M12 5v10" />
+          <path d="m8 11 4 4 4-4" />
+          <path d="M5 19h14" />
+        </svg>
+      </Button>
+    </div>
+  );
+}
+
+export function ButtonFullWidthDemo() {
+  return (
+    <div className="max-w-md space-y-3">
+      <Button variant="primary" className="w-full">
+        Continue checkout
+      </Button>
+      <Button variant="outline" className="w-full">
+        Continue with Google
+      </Button>
+    </div>
+  );
+}
+
+export function ButtonAsyncListDemo() {
+  const [loadingId, setLoadingId] = React.useState<string | null>(null);
+  const items = [
+    { id: "inv-01", label: "Generate invoice #INV-01" },
+    { id: "inv-02", label: "Generate invoice #INV-02" },
+    { id: "inv-03", label: "Generate invoice #INV-03" }
+  ];
+
+  const handleGenerate = async (id: string) => {
+    setLoadingId(id);
+    await new Promise((resolve) => window.setTimeout(resolve, 900));
+    setLoadingId(null);
+  };
+
+  return (
+    <div className="max-w-xl space-y-2">
+      {items.map((item) => (
+        <div key={item.id} className="flex items-center justify-between rounded-xl border border-black/10 p-3 dark:border-white/20">
+          <p className="text-sm">{item.label}</p>
+          <Button
+            size="sm"
+            variant="primary"
+            isLoading={loadingId === item.id}
+            onClick={() => handleGenerate(item.id)}
+          >
+            Generate
+          </Button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function ButtonSplitActionDemo() {
+  return (
+    <div className="inline-flex overflow-hidden rounded-xl border border-black/10 dark:border-white/20">
+      <Button variant="primary" className="rounded-none border-r border-black/10 dark:border-white/20">
+        Save
+      </Button>
+      <Button variant="primary" className="rounded-none px-3" aria-label="More actions">
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </Button>
+    </div>
+  );
+}
+
 type ButtonVariant = "default" | "primary" | "secondary" | "outline" | "ghost" | "danger";
 type ButtonSize = "sm" | "md" | "lg";
 

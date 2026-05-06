@@ -6,4 +6,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   helperText?: string;
   isDisabled?: boolean;
   wrapperClassName?: string;
+  variant?: "default" | "filled" | "flushed" | "ghost";
+  uiSize?: "sm" | "md" | "lg";
+  fullWidth?: boolean;
 }

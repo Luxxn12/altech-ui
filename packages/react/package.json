@@ -1,6 +1,6 @@
 {
   "name": "@altech-ui/react",
-  "version": "0.1.5",
+  "version": "0.2.1",
   "description": "Altech UI React component library",
   "keywords": [
     "altech-ui",
@@ -29,6 +29,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/button.d.ts",
+      "import": "./dist/button.mjs",
+      "require": "./dist/button.js"
     },
     "./styles.css": "./dist/styles.css"
   },
