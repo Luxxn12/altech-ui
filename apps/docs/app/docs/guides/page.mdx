@@ -4,9 +4,34 @@ export const metadata = {
 
 # Guides
 
-Additional best practices to help you build polished UI with Altech UI.
+This page is a practical playbook for shipping production-ready UI with Altech UI.
+Use it as a shared standard so developers make consistent decisions across features.
 
-- Prefer semantic HTML and ARIA labels where needed.
-- Keep animations short (150-250ms) and natural.
-- Respect `prefers-reduced-motion` for accessibility.
-- Compose primitives, avoid over-customizing one component for every case.
+## What this page is for
+
+- Align implementation style across the team.
+- Reduce visual and behavioral inconsistencies between screens.
+- Improve accessibility and maintainability by default.
+
+## Recommended workflow
+
+1. Start with semantic structure and accessible states.
+2. Use design tokens for visual values (not hardcoded colors).
+3. Compose existing primitives before creating new variants.
+4. Add motion only when it supports clarity, not decoration.
+5. Validate behavior in light and dark themes before shipping.
+
+## Developer rules
+
+- Prefer semantic HTML and add ARIA only when native semantics are not enough.
+- Keep animations short (about `150-250ms`) and avoid distracting motion.
+- Respect `prefers-reduced-motion` for users who disable animations.
+- Avoid one-off component forks; extend through composition and tokens.
+- Keep state styles explicit: `hover`, `focus-visible`, `disabled`, `error`, and `loading`.
+
+## Pre-merge checklist
+
+- Keyboard navigation works end-to-end.
+- Focus indicators are visible and consistent.
+- Text, borders, and surfaces have sufficient contrast.
+- Components remain readable and usable in both light and dark modes.

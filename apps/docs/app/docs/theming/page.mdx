@@ -4,7 +4,13 @@ export const metadata = {
 
 # Theming
 
-Altech UI uses CSS variables for design tokens. Override these values in your app to customize brand colors.
+Theming is the visual system layer of your app. In Altech UI, it is powered by CSS variables (design tokens) that define shared values such as colors, radius, and surface contrast.
+
+Use theming when you want to:
+
+- Keep the UI consistent across all pages and components.
+- Rebrand quickly without rewriting component code.
+- Support multiple visual variants (for example `light`, `dark`, or brand-specific themes).
 
 ```css
 :root {
@@ -21,15 +27,23 @@ Altech UI uses CSS variables for design tokens. Override these values in your ap
 }
 ```
 
-## Styling strategy
+## Developer rules
 
-- Keep color tokens semantic.
-- Use Tailwind utility classes for layout and spacing.
-- Use `className` prop to override component visuals per usage context.
+- Always use semantic tokens (`--altech-background`, `--altech-foreground`) instead of hardcoded hex colors inside components.
+- Keep components token-driven, so the same component works across all themes.
+- Use Tailwind for layout/spacing and keep theme values in tokens.
+- Use `className` only for contextual styling, not for replacing core token behavior.
 
-## Tailwind usage
+## Relationship with Dark Mode
 
-Altech UI is designed to work naturally with Tailwind classes:
+Dark Mode is not a separate styling system. It is one theme variant that overrides token values.
+
+- Theming defines the architecture and token names.
+- Dark Mode only changes token values for low-light UI.
+
+## Example usage
+
+Altech UI components work naturally with Tailwind classes while staying token-aware:
 
 ```tsx
 <Button className="rounded-full px-7 shadow-lg">Custom CTA</Button>

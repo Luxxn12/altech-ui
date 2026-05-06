@@ -287,3 +287,24 @@ body[data-theme="light"] .playground-panel textarea,
 [data-theme="dark"] .playground-panel textarea {
   border-color: rgba(255, 255, 255, 0.32);
 }
+
+/* Docs sidebar: make active page clearly visible beyond bold text */
+.nextra-sidebar li.active > a,
+.nextra-sidebar li.active > button {
+  background: rgba(15, 98, 254, 0.14) !important;
+  background: color-mix(in oklab, var(--altech-primary) 16%, transparent) !important;
+  color: color-mix(in oklab, var(--altech-primary) 78%, #0f172a) !important;
+  border-left: 3px solid var(--altech-primary);
+  padding-left: calc(0.5rem - 3px);
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .nextra-sidebar li.active > a,
+[data-theme="dark"] .nextra-sidebar li.active > button,
+.dark .nextra-sidebar li.active > a,
+.dark .nextra-sidebar li.active > button {
+  background: rgba(91, 141, 255, 0.2) !important;
+  background: color-mix(in oklab, var(--altech-primary) 28%, transparent) !important;
+  color: #dbeafe !important;
+  border-left-color: var(--altech-primary);
+}

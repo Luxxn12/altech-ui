@@ -4,7 +4,14 @@ export const metadata = {
 
 # Dark Mode
 
-Altech UI supports dark mode out of the box using token overrides under `.dark` or `[data-theme="dark"]`.
+Dark Mode is a theme variant, not a separate component library.  
+In Altech UI, Dark Mode works by overriding the same tokens used in the default theme.
+
+Use Dark Mode when you want to:
+
+- Improve readability in low-light environments.
+- Respect user preference for dark UI.
+- Keep one component codebase that adapts to multiple visual modes.
 
 ```css
 .dark {
@@ -17,8 +24,23 @@ Altech UI supports dark mode out of the box using token overrides under `.dark` 
 }
 ```
 
-## Recommendations
+You can also scope these overrides with `[data-theme="dark"]` depending on your app setup.
 
-- Keep contrast high for text and surfaces.
-- Avoid overly saturated accents in dark UI.
-- Test focus ring visibility in both modes.
+## Developer rules
+
+- Do not create separate `ButtonDark`, `CardDark`, or duplicated component variants.
+- Do not hardcode `#fff`/`#000` in component internals.
+- Keep contrast accessible for text, borders, and focus rings.
+- Verify hover, disabled, and error states in both light and dark themes.
+
+## How this connects to Theming
+
+- Theming defines token names and design structure.
+- Dark Mode only swaps token values.
+- If a component is token-driven, Dark Mode support is mostly automatic.
+
+## Quick validation checklist
+
+- Text and interactive elements are readable in both modes.
+- Surface and border contrast still separates UI layers.
+- Focus indicators remain visible for keyboard navigation.

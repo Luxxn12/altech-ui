@@ -6,27 +6,47 @@ export const metadata = {
 
 # Altech UI
 
-Build premium React interfaces with a component library designed for speed, consistency, and product-quality UX.
+Build production-ready React interfaces faster with a component system made for modern product teams.
 
-> Altech UI is built with **Tailwind CSS + TypeScript** and published as **`@altech-ui/react`**.
+Altech UI helps you move from idea to polished UI without rebuilding common patterns from scratch.
+It is published as **`@altech-ui/react`** and designed for teams that care about speed, consistency, and maintainability.
 
-## Why Altech UI?
+## Why Teams Choose Altech UI
 
-- Reusable React components with clean API
-- Type-safe props and variant system (CVA)
-- Accessible-first defaults
-- Smooth micro-interactions and modern look
-- First-class support for Next.js and Tailwind
+- Reusable components with clean, predictable APIs
+- Type-safe props and variant patterns with CVA
+- Tailwind-friendly customization through `className`
+- Accessible defaults using proven UI primitives
+- Smooth micro-interactions with reduced-motion support
 
-## Package
+## Quick Start
 
 ```bash
 npm i @altech-ui/react
 ```
 
-## What you get today
+```tsx filename="app/layout.tsx"
+import "@altech-ui/react/styles.css"
+```
 
-- Stable: Button, Input, Card, Badge, Table, Modal
-- Planned: Dropdown, Tabs, Alert, Avatar, Checkbox, Radio, Select, Textarea, Switch, Tooltip, layout primitives
+```tsx
+import { Button } from "@altech-ui/react"
 
-Go to [Documentation](/docs) to start integrating components.
+export default function Example() {
+  return <Button variant="primary">Get Started</Button>
+}
+```
+
+## What You Get
+
+- Core components for forms, feedback, layout, and navigation
+- A consistent visual foundation through design tokens
+- Real usage examples and playgrounds in the docs
+- A setup that scales from MVP to production
+
+## Explore
+
+- [Open Documentation](/docs)
+- [Installation Guide](/docs/installation)
+- [Component Catalog](/docs/components)
+- [GitHub Repository](https://github.com/Luxxn12/altech-ui)

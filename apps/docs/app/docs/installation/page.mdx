@@ -6,7 +6,13 @@ export const metadata = {
 
 # Installation
 
-Install Altech UI and import the style tokens once.
+Follow these steps to install Altech UI in a React project, even if this is your first UI library.
+
+## Prerequisites
+
+- Node.js 18+ installed
+- A React project (Next.js, Vite, or Create React App)
+- One package manager: `npm`, `pnpm`, or `yarn`
 
 ## Install package
 
@@ -14,9 +20,42 @@ Install Altech UI and import the style tokens once.
 npm i @altech-ui/react
 ```
 
+Or:
+
+```bash
+pnpm add @altech-ui/react
+# or
+yarn add @altech-ui/react
+```
+
 ## Import styles
 
+Import styles **once** in your app entry/root file.
+
+Next.js (App Router):
+
 ```tsx filename="app/layout.tsx"
+import "@altech-ui/react/styles.css"
+```
+
+Full example (place this in your root `app/layout.tsx` file):
+
+```tsx filename="app/layout.tsx"
+import "@altech-ui/react/styles.css"
+import type { ReactNode } from "react"
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+Vite / CRA:
+
+```tsx filename="src/main.tsx"
 import "@altech-ui/react/styles.css"
 ```
 
@@ -30,13 +69,48 @@ export default function Example() {
 }
 ```
 
+## Full beginner example (copy-paste)
+
+```tsx filename="src/App.tsx"
+import "@altech-ui/react/styles.css"
+import { Button, Input, Card, CardHeader, CardContent } from "@altech-ui/react"
+
+export default function App() {
+  return (
+    <div style={{ maxWidth: 420, margin: "40px auto" }}>
+      <Card>
+        <CardHeader>Sign in</CardHeader>
+        <CardContent className="space-y-3">
+          <Input label="Email" placeholder="you@example.com" />
+          <Button variant="primary" fullWidth>
+            Continue
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+```
+
+## Common issues
+
+- Styles are not applied:
+  make sure `@altech-ui/react/styles.css` is imported exactly once in root entry/layout.
+- Component import error:
+  check package is installed in the same project (`npm ls @altech-ui/react`).
+- TypeScript red underline:
+  restart dev server and editor TypeScript service after install.
+
 <Steps>
-### Install dependency
-Run `npm i @altech-ui/react` in your app.
+### Install the package
+Run `npm i @altech-ui/react` (or `pnpm add` / `yarn add`).
 
-### Import token styles
-Import `@altech-ui/react/styles.css` once in your root layout.
+### Import styles once
+Import `@altech-ui/react/styles.css` in `app/layout.tsx` or `src/main.tsx`.
 
-### Start building
-Use Altech UI components and customize with `className`.
+### Render your first component
+Import `Button` and render it in any page/component.
+
+### Run your app
+Start dev server and verify styles + component behavior.
 </Steps>
