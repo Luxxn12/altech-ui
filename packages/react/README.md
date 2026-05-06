@@ -2,6 +2,8 @@
 
 A modern React component library built for fast product teams.
 
+[![Open Altech UI Docs](https://img.shields.io/badge/Open-Documentation-0f62fe?style=for-the-badge)](https://altech-ui.vercel.app/)
+
 Altech UI provides production-ready UI primitives with:
 
 - simple APIs for daily use
