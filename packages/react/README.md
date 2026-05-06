@@ -1,5 +1,9 @@
 # @altech-ui/react
 
+<p align="center">
+  <img src="https://altech-ui.vercel.app/logo-altech.png" alt="Altech UI Logo" width="300" />
+</p>
+
 A modern React component library built for fast product teams.
 
 [![Open Altech UI Docs](https://img.shields.io/badge/Open-Documentation-0f62fe?style=for-the-badge)](https://altech-ui.vercel.app/)
