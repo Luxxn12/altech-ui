@@ -8,7 +8,18 @@ export const metadata = {
 
 Use Radio when users must select only one option.
 
+## Quick Preview
+
 <RadioDemo />
+
+## Preset Examples
+
+```tsx
+<RadioItem value="starter" variant="primary" size="sm" />
+<RadioItem value="pro" variant="primary" size="md" />
+<RadioItem value="team" variant="success" size="lg" />
+<RadioItem value="danger" variant="danger" size="md" />
+```
 
 ## Usage
 
@@ -17,10 +28,10 @@ import { RadioGroup, RadioItem } from "@altech-ui/react"
 
 <RadioGroup defaultValue="starter" className="grid gap-2">
   <label className="inline-flex items-center gap-2 text-sm">
-    <RadioItem value="starter" /> Starter
+    <RadioItem value="starter" variant="primary" /> Starter
   </label>
   <label className="inline-flex items-center gap-2 text-sm">
-    <RadioItem value="pro" /> Pro
+    <RadioItem value="pro" variant="success" /> Pro
   </label>
 </RadioGroup>
 ```
@@ -28,4 +39,6 @@ import { RadioGroup, RadioItem } from "@altech-ui/react"
 ## Props
 
 - `RadioGroup`: Radix RadioGroup `Root` props
+- `RadioItem.variant?`: `primary | success | danger`
+- `RadioItem.size?`: `sm | md | lg`
 - `RadioItem`: Radix RadioGroup `Item` props

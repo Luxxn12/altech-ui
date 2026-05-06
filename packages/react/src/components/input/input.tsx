@@ -15,6 +15,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       error,
       helperText,
       isDisabled,
+      endAdornment,
       id,
       wrapperClassName,
       variant,
@@ -30,6 +31,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const prefersReducedMotion = useReducedMotion();
 
     const message = error ?? helperText;
+    const isRequired = Boolean(props.required);
 
     return (
       <motion.div
@@ -47,20 +49,36 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             htmlFor={inputId}
           >
             {label}
+            {isRequired ? (
+              <span
+                aria-hidden="true"
+                className="ml-1 text-[color:var(--altech-danger)]"
+              >
+                *
+              </span>
+            ) : null}
           </label>
         ) : null}
-        <input
-          ref={ref}
-          id={inputId}
-          disabled={isDisabled}
-          aria-invalid={Boolean(error)}
-          aria-describedby={message ? descriptionId : undefined}
-          className={cn(
-            inputVariants({ variant, size: uiSize, hasError: Boolean(error), fullWidth }),
-            className,
-          )}
-          {...props}
-        />
+        <div className="relative">
+          <input
+            ref={ref}
+            id={inputId}
+            disabled={isDisabled}
+            aria-invalid={Boolean(error)}
+            aria-describedby={message ? descriptionId : undefined}
+            className={cn(
+              inputVariants({ variant, size: uiSize, hasError: Boolean(error), fullWidth }),
+              endAdornment ? "pr-10" : "",
+              className,
+            )}
+            {...props}
+          />
+          {endAdornment ? (
+            <div className="absolute inset-y-0 right-3 flex items-center text-[color:var(--altech-foreground)]/65">
+              {endAdornment}
+            </div>
+          ) : null}
+        </div>
         {message ? (
           <p
             id={descriptionId}

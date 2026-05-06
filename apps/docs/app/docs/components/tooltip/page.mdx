@@ -8,7 +8,18 @@ export const metadata = {
 
 Use Tooltip for concise contextual hints.
 
+## Quick Preview
+
 <TooltipDemo />
+
+## Preset Examples
+
+```tsx
+<TooltipContent variant="dark" size="sm">Compact dark</TooltipContent>
+<TooltipContent variant="dark" size="md">Default dark</TooltipContent>
+<TooltipContent variant="light" size="md">Light tooltip</TooltipContent>
+<TooltipContent variant="brand" size="lg">Brand callout</TooltipContent>
+```
 
 ## Usage
 
@@ -18,7 +29,7 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@altec
 <TooltipProvider>
   <Tooltip>
     <TooltipTrigger>Hover</TooltipTrigger>
-    <TooltipContent>Hint text</TooltipContent>
+    <TooltipContent variant="brand" size="md">Hint text</TooltipContent>
   </Tooltip>
 </TooltipProvider>
 ```
@@ -28,4 +39,6 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@altec
 - `TooltipProvider`: Radix Tooltip `Provider` props
 - `Tooltip`: Radix Tooltip `Root` props
 - `TooltipTrigger`: Radix Tooltip `Trigger` props
+- `TooltipContent.variant?`: `dark | light | brand`
+- `TooltipContent.size?`: `sm | md | lg`
 - `TooltipContent`: Radix Tooltip `Content` props

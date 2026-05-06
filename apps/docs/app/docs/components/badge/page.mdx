@@ -8,7 +8,19 @@ export const metadata = {
 
 Badge communicates status and small metadata labels.
 
+## Quick Preview
+
 <BadgeDemo />
+
+## Preset Examples
+
+```tsx
+<Badge variant="default">Draft</Badge>
+<Badge variant="primary">Featured</Badge>
+<Badge variant="success">Completed</Badge>
+<Badge variant="warning">Pending</Badge>
+<Badge variant="danger">Failed</Badge>
+```
 
 ## Interactive Playground
 
@@ -21,3 +33,8 @@ import { Badge } from "@altech-ui/react"
 
 <Badge variant="success">Active</Badge>
 ```
+
+## Props
+
+- `variant?`: `default | primary | success | warning | danger`
+- Native `span` props

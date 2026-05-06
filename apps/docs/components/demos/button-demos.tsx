@@ -2,10 +2,11 @@
 
 import * as React from "react";
 import { Button } from "@altech-ui/react";
+import { GeneratedCode } from "@/components/generated-code";
 
 export function ButtonDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="pt-3 flex flex-wrap justify-center gap-3">
       <Button>Default</Button>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
@@ -14,14 +15,14 @@ export function ButtonDemo() {
       <Button variant="danger">Danger</Button>
       <Button size="sm">Small</Button>
       <Button size="lg">Large</Button>
-      <Button isLoading>Loading</Button>
+      <Button loading>Loading</Button>
     </div>
   );
 }
 
 export function ButtonVariantsDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="pt-3 flex flex-wrap justify-center gap-3">
       <Button variant="default">Default</Button>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
@@ -34,7 +35,7 @@ export function ButtonVariantsDemo() {
 
 export function ButtonSizesDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
       <Button size="sm" variant="primary">Small</Button>
       <Button size="md" variant="primary">Medium</Button>
       <Button size="lg" variant="primary">Large</Button>
@@ -44,9 +45,9 @@ export function ButtonSizesDemo() {
 
 export function ButtonStateDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="pt-3 flex flex-wrap justify-center gap-3">
       <Button variant="primary">Normal</Button>
-      <Button variant="primary" isLoading>
+      <Button variant="primary" loading>
         Saving
       </Button>
       <Button variant="primary" disabled>
@@ -58,23 +59,25 @@ export function ButtonStateDemo() {
 
 export function ButtonGroupDemo() {
   return (
-    <div className="inline-flex overflow-hidden rounded-xl border border-black/10 dark:border-white/20">
-      <Button variant="ghost" className="rounded-none border-r border-black/10 dark:border-white/20">
-        Day
-      </Button>
-      <Button variant="primary" className="rounded-none border-r border-black/10 dark:border-white/20">
-        Week
-      </Button>
-      <Button variant="ghost" className="rounded-none">
-        Month
-      </Button>
+    <div className="pt-3 flex justify-center">
+      <div className="inline-flex overflow-hidden rounded-xl border border-black/10 dark:border-white/20">
+        <Button variant="ghost" className="rounded-none border-r border-black/10 dark:border-white/20">
+          Day
+        </Button>
+        <Button variant="primary" className="rounded-none border-r border-black/10 dark:border-white/20">
+          Week
+        </Button>
+        <Button variant="ghost" className="rounded-none">
+          Month
+        </Button>
+      </div>
     </div>
   );
 }
 
 export function ButtonActionRowDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="pt-3 flex flex-wrap justify-center gap-3">
       <Button variant="ghost">Cancel</Button>
       <Button variant="secondary">Save Draft</Button>
       <Button variant="primary">Publish</Button>
@@ -84,11 +87,11 @@ export function ButtonActionRowDemo() {
 
 export function ButtonIconOnlyDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
       <Button
         variant="outline"
         aria-label="Download"
-        className="h-11 w-11 p-0"
+        size="icon"
       >
         <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="M12 4v10" />
@@ -96,7 +99,7 @@ export function ButtonIconOnlyDemo() {
           <path d="M4 19h16" />
         </svg>
       </Button>
-      <Button variant="ghost" aria-label="Settings" className="h-11 w-11 p-0">
+      <Button variant="ghost" aria-label="Settings" size="icon">
         <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <circle cx="12" cy="12" r="3" />
           <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 0 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 0 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 .9-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 0 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5.9H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z" />
@@ -108,7 +111,7 @@ export function ButtonIconOnlyDemo() {
 
 export function ButtonWithIconDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="pt-3 flex flex-wrap justify-center gap-3">
       <Button variant="primary">
         <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="M5 12h14" />
@@ -130,11 +133,11 @@ export function ButtonWithIconDemo() {
 
 export function ButtonFullWidthDemo() {
   return (
-    <div className="max-w-md space-y-3">
-      <Button variant="primary" className="w-full">
+    <div className="pt-3 mx-auto max-w-md space-y-3">
+      <Button variant="primary" fullWidth>
         Continue checkout
       </Button>
-      <Button variant="outline" className="w-full">
+      <Button variant="outline" fullWidth>
         Continue with Google
       </Button>
     </div>
@@ -156,14 +159,14 @@ export function ButtonAsyncListDemo() {
   };
 
   return (
-    <div className="max-w-xl space-y-2">
+    <div className="pt-3 mx-auto max-w-xl space-y-2">
       {items.map((item) => (
         <div key={item.id} className="flex items-center justify-between rounded-xl border border-black/10 p-3 dark:border-white/20">
           <p className="text-sm">{item.label}</p>
           <Button
             size="sm"
             variant="primary"
-            isLoading={loadingId === item.id}
+            loading={loadingId === item.id}
             onClick={() => handleGenerate(item.id)}
           >
             Generate
@@ -176,15 +179,17 @@ export function ButtonAsyncListDemo() {
 
 export function ButtonSplitActionDemo() {
   return (
-    <div className="inline-flex overflow-hidden rounded-xl border border-black/10 dark:border-white/20">
-      <Button variant="primary" className="rounded-none border-r border-black/10 dark:border-white/20">
-        Save
-      </Button>
-      <Button variant="primary" className="rounded-none px-3" aria-label="More actions">
-        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </Button>
+    <div className="pt-3 flex justify-center">
+      <div className="inline-flex overflow-hidden rounded-xl border border-black/10 dark:border-white/20">
+        <Button variant="primary" className="rounded-none border-r border-black/10 dark:border-white/20">
+          Save
+        </Button>
+        <Button variant="primary" className="rounded-none px-3" aria-label="More actions">
+          <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </Button>
+      </div>
     </div>
   );
 }
@@ -199,7 +204,7 @@ export function ButtonPlayground() {
   const [radiusPx, setRadiusPx] = React.useState(14);
   const [color, setColor] = React.useState("#ea8435");
   const [customColor, setCustomColor] = React.useState("#ea8435");
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   const [disabled, setDisabled] = React.useState(false);
   const [extraClassName, setExtraClassName] = React.useState("");
 
@@ -229,7 +234,7 @@ export function ButtonPlayground() {
     const props: string[] = [];
     if (variant !== "default") props.push(`variant="${variant}"`);
     if (size !== "md") props.push(`size="${size}"`);
-    if (isLoading) props.push("isLoading");
+    if (loading) props.push("loading");
     if (disabled) props.push("disabled");
 
     const generatedStyle = `style={{ height: "${sizePx}px", borderRadius: "${radiusPx}px", backgroundColor: "${color}" }}`;
@@ -240,25 +245,23 @@ export function ButtonPlayground() {
       props.push(`className="${extraClassName.trim()}"`);
     }
 
-    return `<Button${props.length ? ` ${props.join(" ")}` : ""}>${label || "Button"}</Button>`;
-  }, [color, disabled, extraClassName, isLoading, label, radiusPx, size, sizePx, variant]);
+    return `import { Button } from "@altech-ui/react";
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(snippet);
-    } catch {
-      // ignore clipboard errors in restricted browser contexts
-    }
-  };
+export function Example() {
+  return (
+    <Button${props.length ? ` ${props.join(" ")}` : ""}>${label || "Button"}</Button>
+  );
+}`;
+  }, [color, disabled, extraClassName, loading, label, radiusPx, size, sizePx, variant]);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/15 dark:bg-white/5">
+    <div className="playground-panel overflow-hidden rounded-2xl border border-black/15 bg-white dark:border-white/25 dark:bg-white/5">
       <div className="grid min-h-[420px] grid-cols-1 lg:grid-cols-[minmax(0,1fr)_390px]">
         <div className="flex items-center justify-center border-b border-black/10 p-6 lg:border-b-0 lg:border-r dark:border-white/15">
           <Button
             variant={variant}
             size={size}
-            isLoading={isLoading}
+            loading={loading}
             disabled={disabled}
             className={extraClassName || undefined}
             style={
@@ -349,8 +352,8 @@ export function ButtonPlayground() {
 
           <div className="flex flex-wrap gap-3 text-sm">
             <label className="inline-flex items-center gap-2">
-              <input type="checkbox" checked={isLoading} onChange={(event) => setIsLoading(event.target.checked)} />
-              isLoading
+              <input type="checkbox" checked={loading} onChange={(event) => setLoading(event.target.checked)} />
+              loading
             </label>
             <label className="inline-flex items-center gap-2">
               <input type="checkbox" checked={disabled} onChange={(event) => setDisabled(event.target.checked)} />
@@ -369,19 +372,8 @@ export function ButtonPlayground() {
           </label>
 
           <div className="space-y-2 border-t border-black/10 pt-3 dark:border-white/15">
-            <div className="flex items-center justify-between">
-              <p className="text-xs opacity-70">Generated code</p>
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="rounded-md border border-black/10 px-2 py-1 text-xs hover:bg-black/[.04] dark:border-white/20 dark:hover:bg-white/10"
-              >
-                Copy
-              </button>
-            </div>
-            <pre className="overflow-x-auto rounded-lg border border-black/10 bg-black/[.03] p-3 text-xs dark:border-white/15 dark:bg-white/5">
-              <code>{snippet}</code>
-            </pre>
+            <p className="text-xs opacity-70">Generated code</p>
+            <GeneratedCode code={snippet} />
           </div>
         </div>
       </div>

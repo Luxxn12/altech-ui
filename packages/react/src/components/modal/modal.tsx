@@ -31,14 +31,22 @@ export const ModalPortal = ({ children, ...props }: ModalPortalProps) => (
 );
 
 export const ModalOverlay = React.forwardRef<HTMLDivElement, ModalOverlayProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, backdrop = "default", ...props }, ref) => {
     const prefersReducedMotion = useReducedMotion();
+    const backdropClass =
+      backdrop === "blur"
+        ? "bg-black/40 backdrop-blur-md"
+        : backdrop === "transparent"
+          ? "bg-black/20"
+          : backdrop === "dark"
+            ? "bg-black/60 backdrop-blur-[1px]"
+            : "bg-black/45 backdrop-blur-[2px]";
 
     return (
       <DialogPrimitive.Overlay asChild {...props}>
         <motion.div
           ref={ref}
-          className={cn("fixed inset-0 z-50 bg-black/45 backdrop-blur-[2px]", className)}
+          className={cn("fixed inset-0 z-50", backdropClass, className)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -52,20 +60,29 @@ export const ModalOverlay = React.forwardRef<HTMLDivElement, ModalOverlayProps>(
 ModalOverlay.displayName = "ModalOverlay";
 
 export const ModalContent = React.forwardRef<HTMLDivElement, ModalContentProps>(
-  ({ className, children, variant, size, ...props }, ref) => {
+  ({ className, children, variant, size, placement, backdrop, ...props }, ref) => {
     const prefersReducedMotion = useReducedMotion();
 
     return (
       <ModalPortal>
-        <ModalOverlay />
+        <ModalOverlay backdrop={backdrop} />
         <DialogPrimitive.Content asChild {...props}>
           <motion.div
             ref={ref}
-            className={cn(modalContentVariants({ variant, size }), className)}
+            className={cn(modalContentVariants({ variant, size, placement }), className)}
             initial={{ opacity: 0, scale: 0.95, y: 14 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.22, ease: "easeOut" }}
           >
+            <DialogPrimitive.Close
+              aria-label="Close modal"
+              className="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-md text-[color:var(--altech-foreground)]/65 transition hover:bg-black/5 hover:text-[color:var(--altech-foreground)] dark:hover:bg-white/10"
+            >
+              <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </DialogPrimitive.Close>
             {children}
           </motion.div>
         </DialogPrimitive.Content>
@@ -125,7 +142,7 @@ export const ModalDescription = React.forwardRef<HTMLParagraphElement, ModalDesc
 ModalDescription.displayName = "ModalDescription";
 
 const modalContentVariants = cva(
-  "fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-[var(--altech-radius,10px)] border p-6 outline-none",
+  "fixed z-50 rounded-[var(--altech-radius,10px)] border p-6 outline-none",
   {
     variants: {
       variant: {
@@ -137,15 +154,26 @@ const modalContentVariants = cva(
           "border-[color:color-mix(in_oklab,var(--altech-success)_35%,transparent)] bg-[color:color-mix(in_oklab,var(--altech-success)_7%,var(--altech-background))] shadow-2xl"
       },
       size: {
+        xs: "w-[min(92vw,20rem)]",
         sm: "w-[min(92vw,24rem)]",
         md: "w-[min(92vw,32rem)]",
         lg: "w-[min(92vw,42rem)]",
-        xl: "w-[min(92vw,56rem)]"
+        xl: "w-[min(92vw,56rem)]",
+        cover: "w-[min(96vw,72rem)] h-[min(92vh,44rem)] overflow-auto",
+        full: "inset-0 h-screen w-screen max-w-none rounded-none border-0 overflow-auto"
+      },
+      placement: {
+        center: "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+        top: "left-1/2 top-6 -translate-x-1/2",
+        bottom: "bottom-6 left-1/2 -translate-x-1/2",
+        left: "left-6 top-1/2 -translate-y-1/2",
+        right: "right-6 top-1/2 -translate-y-1/2"
       }
     },
     defaultVariants: {
       variant: "default",
-      size: "md"
+      size: "md",
+      placement: "center"
     }
   }
 );

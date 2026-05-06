@@ -25,7 +25,12 @@ export const metadata: Metadata = {
     template: "%s | Altech UI"
   },
   description:
-    "Altech UI is a modern React + Tailwind component library with TypeScript, accessibility, and premium interactions."
+    "Altech UI is a modern React + Tailwind component library with TypeScript, accessibility, and premium interactions.",
+  icons: {
+    icon: "/logo-altech-browser.png",
+    shortcut: "/logo-altech-browser.png",
+    apple: "/logo-altech-browser.png"
+  }
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {
@@ -41,9 +46,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           navbar={
             <Navbar
               logo={
-                <span style={{ fontFamily: "var(--font-heading)", fontWeight: 700 }}>
-                  Altech UI
-                </span>
+                <img src="/logo-altech.png" alt="Altech UI" style={{ height: 25, width: "auto" }} />
               }
               projectLink="https://github.com/Luxxn12/altech-ui"
             />

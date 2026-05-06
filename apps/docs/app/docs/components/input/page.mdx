@@ -1,4 +1,4 @@
-import { InputDemo, InputPlayground } from "@/components/demos/form-demos"
+import { InputDemo, InputPlayground, InputTypesDemo } from "@/components/demos/form-demos"
 
 export const metadata = {
   title: "Input"
@@ -8,11 +8,59 @@ export const metadata = {
 
 Input includes label, helper/error messages, and state transitions.
 
+## Quick Preview
+
 <InputDemo />
+
+## Preset Examples
+
+```tsx
+<Input variant="default" uiSize="md" placeholder="Default input" />
+<Input variant="filled" uiSize="sm" placeholder="Compact filled input" />
+<Input variant="ghost" uiSize="lg" placeholder="Search products..." />
+<Input variant="flushed" label="Username" placeholder="@yourname" />
+<Input variant="default" error="Email is required" />
+```
 
 ## Interactive Playground
 
 <InputPlayground />
+
+## Input Types
+
+<InputTypesDemo />
+
+```tsx
+<Input label="Work Email" type="email" required />
+<Input label="Search" type="search" variant="ghost" />
+<Input label="Phone" type="tel" />
+<Input label="Website" type="url" />
+<Input label="OTP Code" type="number" uiSize="sm" />
+```
+
+```tsx
+"use client"
+
+import { useState } from "react"
+import { Input } from "@altech-ui/react"
+
+export function PasswordField() {
+  const [showPassword, setShowPassword] = useState(false)
+
+  return (
+    <Input
+      label="Password"
+      type={showPassword ? "text" : "password"}
+      required
+      endAdornment={
+        <button type="button" onClick={() => setShowPassword((prev) => !prev)}>
+          {showPassword ? "Hide" : "Show"}
+        </button>
+      }
+    />
+  )
+}
+```
 
 ## Usage
 
@@ -21,6 +69,7 @@ import { Input } from "@altech-ui/react"
 
 <Input placeholder="Enter your email" />
 <Input label="Email" placeholder="email@example.com" />
+<Input variant="filled" uiSize="sm" placeholder="Compact input" />
 <Input error="Email is required" />
 <Input isDisabled />
 ```
@@ -32,5 +81,8 @@ import { Input } from "@altech-ui/react"
 - `error?`: `string`
 - `helperText?`: `string`
 - `isDisabled?`: `boolean`
+- `variant?`: `default | filled | flushed | ghost`
+- `uiSize?`: `sm | md | lg`
+- `fullWidth?`: `boolean`
 - `className?`: `string`
 - Native `input` props

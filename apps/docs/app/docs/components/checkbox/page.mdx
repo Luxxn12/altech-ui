@@ -8,7 +8,18 @@ export const metadata = {
 
 Use Checkbox for multi-select boolean options.
 
+## Quick Preview
+
 <CheckboxDemo />
+
+## Preset Examples
+
+```tsx
+<Checkbox variant="primary" size="sm" />
+<Checkbox variant="primary" size="md" defaultChecked />
+<Checkbox variant="success" size="lg" />
+<Checkbox variant="danger" size="md" />
+```
 
 ## Usage
 
@@ -17,8 +28,11 @@ import { Checkbox } from "@altech-ui/react"
 
 <Checkbox defaultChecked />
 <Checkbox checked={checked} onCheckedChange={setChecked} />
+<Checkbox variant="success" size="lg" />
 ```
 
 ## Props
 
+- `variant?`: `primary | success | danger`
+- `size?`: `sm | md | lg`
 - Radix Checkbox `Root` props

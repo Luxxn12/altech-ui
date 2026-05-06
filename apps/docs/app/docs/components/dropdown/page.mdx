@@ -8,7 +8,20 @@ export const metadata = {
 
 Use Dropdown for compact action menus.
 
+## Quick Preview
+
 <DropdownDemo />
+
+## Preset Examples
+
+```tsx
+<DropdownContent variant="default">...</DropdownContent>
+<DropdownContent variant="elevated">...</DropdownContent>
+<DropdownContent variant="soft">...</DropdownContent>
+<DropdownItem variant="default">Edit</DropdownItem>
+<DropdownItem variant="success">Approve</DropdownItem>
+<DropdownItem variant="danger">Delete</DropdownItem>
+```
 
 ## Usage
 
@@ -17,10 +30,10 @@ import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@altec
 
 <Dropdown>
   <DropdownTrigger>Open</DropdownTrigger>
-  <DropdownContent>
+  <DropdownContent variant="elevated">
     <DropdownItem>Profile</DropdownItem>
     <DropdownItem>Settings</DropdownItem>
-    <DropdownItem>Sign out</DropdownItem>
+    <DropdownItem variant="danger">Sign out</DropdownItem>
   </DropdownContent>
 </Dropdown>
 ```
@@ -29,5 +42,7 @@ import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "@altec
 
 - `Dropdown`: Radix DropdownMenu `Root` props
 - `DropdownTrigger`: Radix DropdownMenu `Trigger` props
+- `DropdownContent.variant?`: `default | elevated | soft`
+- `DropdownItem.variant?`: `default | danger | success`
 - `DropdownContent`: Radix DropdownMenu `Content` props
 - `DropdownItem`: Radix DropdownMenu `Item` props

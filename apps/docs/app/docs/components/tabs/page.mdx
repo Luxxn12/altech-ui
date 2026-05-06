@@ -8,7 +8,25 @@ export const metadata = {
 
 Use Tabs to split related content into sections.
 
+## Quick Preview
+
 <TabsDemo />
+
+## Preset Examples
+
+```tsx
+<TabsList variant="pills" size="sm">...</TabsList>
+<TabsList variant="line" size="md">...</TabsList>
+<TabsList variant="boxed" size="lg">...</TabsList>
+
+<TabsTrigger variant="pills" size="md" value="overview">Overview</TabsTrigger>
+<TabsTrigger variant="line" size="md" value="billing">Billing</TabsTrigger>
+<TabsTrigger variant="boxed" size="sm" value="security">Security</TabsTrigger>
+
+<TabsContent spacing="sm" value="overview">...</TabsContent>
+<TabsContent spacing="md" value="billing">...</TabsContent>
+<TabsContent spacing="lg" value="security">...</TabsContent>
+```
 
 ## Interactive Playground
 
@@ -20,18 +38,23 @@ Use Tabs to split related content into sections.
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@altech-ui/react"
 
 <Tabs defaultValue="account">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="billing">Billing</TabsTrigger>
+  <TabsList variant="line">
+    <TabsTrigger variant="line" value="account">Account</TabsTrigger>
+    <TabsTrigger variant="line" value="billing">Billing</TabsTrigger>
   </TabsList>
-  <TabsContent value="account">...</TabsContent>
-  <TabsContent value="billing">...</TabsContent>
+  <TabsContent spacing="lg" value="account">...</TabsContent>
+  <TabsContent spacing="lg" value="billing">...</TabsContent>
 </Tabs>
 ```
 
 ## Props
 
 - `Tabs`: Radix Tabs `Root` props
+- `TabsList.variant?`: `pills | line | boxed`
+- `TabsList.size?`: `sm | md | lg`
+- `TabsTrigger.variant?`: `pills | line | boxed`
+- `TabsTrigger.size?`: `sm | md | lg`
+- `TabsContent.spacing?`: `sm | md | lg`
 - `TabsList`: Radix Tabs `List` props
 - `TabsTrigger`: Radix Tabs `Trigger` props
 - `TabsContent`: Radix Tabs `Content` props

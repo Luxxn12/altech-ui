@@ -8,7 +8,22 @@ export const metadata = {
 
 Use Select for a styled single-choice list.
 
+## Quick Preview
+
 <SelectDemo />
+
+## Preset Examples
+
+```tsx
+<SelectTrigger variant="default" size="md" />
+<SelectTrigger variant="filled" size="sm" />
+<SelectTrigger variant="ghost" size="lg" />
+<SelectTrigger variant="flushed" size="md" />
+
+<SelectContent variant="default">...</SelectContent>
+<SelectContent variant="elevated">...</SelectContent>
+<SelectContent variant="soft">...</SelectContent>
+```
 
 ## Interactive Playground
 
@@ -20,10 +35,10 @@ Use Select for a styled single-choice list.
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@altech-ui/react"
 
 <Select>
-  <SelectTrigger>
+  <SelectTrigger variant="filled">
     <SelectValue placeholder="Choose plan" />
   </SelectTrigger>
-  <SelectContent>
+  <SelectContent variant="elevated">
     <SelectItem value="starter">Starter</SelectItem>
     <SelectItem value="pro">Pro</SelectItem>
   </SelectContent>
@@ -33,6 +48,9 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 ## Props
 
 - `Select`: Radix Select `Root` props
+- `SelectTrigger.variant?`: `default | filled | ghost | flushed`
+- `SelectTrigger.size?`: `sm | md | lg`
+- `SelectContent.variant?`: `default | elevated | soft`
 - `SelectTrigger`: Radix Select `Trigger` props
 - `SelectContent`: Radix Select `Content` props
 - `SelectItem`: Radix Select `Item` props

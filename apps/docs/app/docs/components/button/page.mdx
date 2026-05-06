@@ -19,7 +19,7 @@ export const metadata = {
 
 # Button
 
-Button dipakai untuk trigger aksi utama dan sekunder. Halaman ini dibuat sebagai referensi praktis: banyak variasi preview + snippet siap copy.
+Use Button to trigger primary and secondary actions.
 
 ## Quick Preview
 
@@ -27,7 +27,7 @@ Button dipakai untuk trigger aksi utama dan sekunder. Halaman ini dibuat sebagai
 
 ## Interactive Playground
 
-Ubah prop secara langsung, lalu copy generated code untuk dipakai di project Anda.
+Update props directly, then copy generated code for your project.
 
 <ButtonPlayground />
 
@@ -66,7 +66,7 @@ import { Button } from "@altech-ui/react"
 
 ```tsx
 <Button variant="primary">Normal</Button>
-<Button variant="primary" isLoading>Saving</Button>
+<Button variant="primary" loading>Saving</Button>
 <Button variant="primary" disabled>Disabled</Button>
 ```
 
@@ -99,10 +99,10 @@ import { Button } from "@altech-ui/react"
 <ButtonIconOnlyDemo />
 
 ```tsx
-<Button variant="outline" aria-label="Download" className="h-11 w-11 p-0">
+<Button variant="outline" aria-label="Download" size="icon">
   <DownloadIcon />
 </Button>
-<Button variant="ghost" aria-label="Settings" className="h-11 w-11 p-0">
+<Button variant="ghost" aria-label="Settings" size="icon">
   <SettingsIcon />
 </Button>
 ```
@@ -128,8 +128,8 @@ import { Button } from "@altech-ui/react"
 <ButtonFullWidthDemo />
 
 ```tsx
-<Button variant="primary" className="w-full">Continue checkout</Button>
-<Button variant="outline" className="w-full">Continue with Google</Button>
+<Button variant="primary" fullWidth>Continue checkout</Button>
+<Button variant="outline" fullWidth>Continue with Google</Button>
 ```
 
 ## Async List Actions
@@ -142,7 +142,7 @@ import { Button } from "@altech-ui/react"
     key={item.id}
     size="sm"
     variant="primary"
-    isLoading={loadingId === item.id}
+    loading={loadingId === item.id}
     onClick={() => handleGenerate(item.id)}
   >
     Generate
@@ -184,7 +184,7 @@ export function SaveButton() {
   }
 
   return (
-    <Button variant="primary" isLoading={saving} onClick={handleSave}>
+    <Button variant="primary" loading={saving} onClick={handleSave}>
       Save changes
     </Button>
   )
@@ -194,8 +194,12 @@ export function SaveButton() {
 ## Props
 
 - `variant`: `default | primary | secondary | outline | ghost | danger`
-- `size`: `sm | md | lg`
-- `isLoading?`: `boolean`
+- `size`: `sm | md | lg | icon`
+- `loading?`: `boolean`
+- `loadingText?`: `string`
+- `fullWidth?`: `boolean`
+- `startIcon?`: `ReactNode`
+- `endIcon?`: `ReactNode`
 - `disabled?`: `boolean`
 - `className?`: `string`
 - Native `button` props

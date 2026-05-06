@@ -1,4 +1,10 @@
-import { CardDemo, CardPlayground } from "@/components/demos/display-demos"
+import {
+  CardBackgroundImageDemo,
+  CardDemo,
+  CardDeveloperDemo,
+  CardPlayground,
+  CardWithImageDemo
+} from "@/components/demos/display-demos"
 
 export const metadata = {
   title: "Card"
@@ -8,16 +14,153 @@ export const metadata = {
 
 Card is a layout surface with hover/press interactions and composition helpers.
 
+## Quick Preview
+
 <CardDemo />
+
+## Variants
+
+- `Card.variant`: `default | elevated | outline | ghost | gradient`
+- `CardHeader.size`: `sm | md | lg`
+- `CardContent.size`: `sm | md | lg`
+- `CardFooter.size`: `sm | md | lg`
+
+## Preset Examples
+
+```tsx
+<Card variant="default">...</Card>
+<Card variant="elevated">...</Card>
+<Card variant="outline">...</Card>
+<Card variant="ghost">...</Card>
+<Card variant="gradient">...</Card>
+```
 
 ## Interactive Playground
 
 <CardPlayground />
 
+## Card With Image
+
+<CardWithImageDemo />
+
+```tsx
+<div className="grid gap-4 md:grid-cols-2">
+  <Card variant="elevated" className="overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop" alt="Developer workspace" className="h-44 w-full object-cover" />
+    <CardHeader>
+      <h3 className="text-lg font-semibold">Frontend Engineering Guide</h3>
+      <p className="text-sm opacity-70">Patterns, architecture, and practical UI strategies.</p>
+    </CardHeader>
+    <CardFooter>
+      <Button variant="primary">Read article</Button>
+      <Button variant="ghost">Bookmark</Button>
+    </CardFooter>
+  </Card>
+
+  <Card variant="outline" className="overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Code editor screen" className="h-44 w-full object-cover" />
+    <CardContent>
+      <Badge variant="success">New release</Badge>
+      <h3 className="mt-3 text-lg font-semibold">Altech UI v2.1</h3>
+      <p className="mt-1 text-sm opacity-70">Improved forms, overlays, and design tokens.</p>
+    </CardContent>
+  </Card>
+</div>
+```
+
+## Card With Background Image
+
+<CardBackgroundImageDemo />
+
+```tsx
+<div className="grid gap-4 md:grid-cols-2">
+  <Card
+    className="relative overflow-hidden text-white"
+    style={{
+      backgroundImage:
+        "linear-gradient(180deg, rgba(2,6,23,0.25) 0%, rgba(2,6,23,0.82) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}
+  >
+    <CardHeader>
+      <Badge variant="warning">Featured</Badge>
+      <h3 className="text-xl font-semibold">Build Faster with Design Systems</h3>
+      <p className="text-sm text-white/85">Ship consistent UI by composing reusable primitives.</p>
+    </CardHeader>
+    <CardFooter>
+      <Button variant="secondary">Explore docs</Button>
+      <Button variant="ghost" className="text-white">Share</Button>
+    </CardFooter>
+  </Card>
+
+  <Card
+    className="relative overflow-hidden text-white"
+    style={{
+      backgroundImage:
+        "linear-gradient(180deg, rgba(15,23,42,0.35) 0%, rgba(15,23,42,0.88) 100%), url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1400&auto=format&fit=crop')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}
+  >
+    <CardHeader>
+      <h3 className="text-xl font-semibold">Deploy Checklist</h3>
+      <p className="text-sm text-white/85">Type safety, visual QA, accessibility, and perf.</p>
+    </CardHeader>
+    <CardContent>
+      <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs">
+        <span className="size-2 rounded-full bg-emerald-400" />
+        Ready for production
+      </div>
+    </CardContent>
+  </Card>
+</div>
+```
+
+## Developer Dashboard Cards
+
+<CardDeveloperDemo />
+
+```tsx
+<div className="grid gap-4 md:grid-cols-3">
+  <Card variant="outline">
+    <CardHeader size="sm">
+      <p className="text-xs uppercase tracking-wide opacity-60">Build Status</p>
+      <h3 className="text-lg font-semibold">Main Branch</h3>
+    </CardHeader>
+    <CardContent size="sm">
+      <p className="text-3xl font-bold text-emerald-500">Passing</p>
+      <p className="text-sm opacity-70">142 tests • 0 failures</p>
+    </CardContent>
+  </Card>
+
+  <Card variant="default">
+    <CardHeader size="sm">
+      <p className="text-xs uppercase tracking-wide opacity-60">API Latency</p>
+      <h3 className="text-lg font-semibold">P95 Response</h3>
+    </CardHeader>
+    <CardContent size="sm">
+      <p className="text-3xl font-bold">188ms</p>
+      <p className="text-sm opacity-70">-12% from last deploy</p>
+    </CardContent>
+  </Card>
+
+  <Card variant="gradient">
+    <CardHeader size="sm">
+      <p className="text-xs uppercase tracking-wide opacity-70">Weekly Deploys</p>
+      <h3 className="text-lg font-semibold">14 Releases</h3>
+    </CardHeader>
+    <CardContent size="sm">
+      <p className="text-sm opacity-80">Most active team: Frontend Platform</p>
+    </CardContent>
+  </Card>
+</div>
+```
+
 ## Usage
 
 ```tsx
-import { Card, CardHeader, CardContent, CardFooter } from "@altech-ui/react"
+import { Badge, Button, Card, CardHeader, CardContent, CardFooter } from "@altech-ui/react"
 ```
 
 Use `CardHeader`, `CardContent`, and `CardFooter` to keep structure consistent.

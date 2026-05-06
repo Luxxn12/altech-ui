@@ -1,4 +1,12 @@
-import { ModalDemo, ModalPlayground } from "@/components/demos/overlay-demos"
+import {
+  ModalBackdropDemo,
+  ModalDemo,
+  ModalPatternsDemo,
+  ModalPlacementDemo,
+  ModalPlayground,
+  ModalSizesDemo,
+  ModalVariantsDemo
+} from "@/components/demos/overlay-demos"
 
 export const metadata = {
   title: "Modal"
@@ -8,17 +16,125 @@ export const metadata = {
 
 Modal is built on accessible Radix Dialog primitives with smooth open/close transitions.
 
+## Quick Preview
+
 <ModalDemo />
+
+## Preset Examples
+
+```tsx
+<Modal>
+  <ModalTrigger asChild>
+    <Button variant="primary">Open modal</Button>
+  </ModalTrigger>
+  <ModalContent variant="elevated" size="md">
+    <ModalHeader>
+      <ModalTitle>Project Settings</ModalTitle>
+      <ModalDescription>Update your project information.</ModalDescription>
+    </ModalHeader>
+    <ModalFooter>
+      <ModalClose asChild><Button variant="ghost">Cancel</Button></ModalClose>
+      <Button variant="primary">Save</Button>
+    </ModalFooter>
+  </ModalContent>
+</Modal>
+```
 
 ## Interactive Playground
 
 <ModalPlayground />
 
+## Variants
+
+<ModalVariantsDemo />
+
+```tsx
+<Modal>
+  <ModalTrigger asChild><Button variant="outline">Default</Button></ModalTrigger>
+  <ModalContent variant="default" size="sm">
+    <ModalHeader>
+      <ModalTitle>Default modal</ModalTitle>
+      <ModalDescription>Variant preview for quick copy.</ModalDescription>
+    </ModalHeader>
+  </ModalContent>
+</Modal>
+```
+
+## Placement
+
+<ModalPlacementDemo />
+
+```tsx
+<Modal>
+  <ModalTrigger asChild><Button variant="secondary">Top Modal</Button></ModalTrigger>
+  <ModalContent placement="top" size="sm">
+    <ModalHeader>
+      <ModalTitle>Top placement</ModalTitle>
+      <ModalDescription>Modal anchored to top.</ModalDescription>
+    </ModalHeader>
+  </ModalContent>
+</Modal>
+```
+
+## Backdrop Variants
+
+<ModalBackdropDemo />
+
+```tsx
+<Modal>
+  <ModalTrigger asChild><Button variant="outline">Blur Backdrop</Button></ModalTrigger>
+  <ModalContent backdrop="blur" size="sm">
+    <ModalHeader>
+      <ModalTitle>Blur backdrop</ModalTitle>
+      <ModalDescription>Backdrop style blur.</ModalDescription>
+    </ModalHeader>
+  </ModalContent>
+</Modal>
+```
+
+## Sizes
+
+<ModalSizesDemo />
+
+```tsx
+<Modal>
+  <ModalTrigger asChild><Button variant="primary">Open Large Modal</Button></ModalTrigger>
+  <ModalContent size="lg" variant="elevated">
+    <ModalHeader>
+      <ModalTitle>Large modal</ModalTitle>
+      <ModalDescription>Use this as your starting template.</ModalDescription>
+    </ModalHeader>
+  </ModalContent>
+</Modal>
+```
+
+## Ready Patterns
+
+<ModalPatternsDemo />
+
+```tsx
+<Modal>
+  <ModalTrigger asChild><Button variant="outline">Confirm Delete</Button></ModalTrigger>
+  <ModalContent variant="danger" size="sm">
+    <ModalHeader>
+      <ModalTitle>Delete item</ModalTitle>
+      <ModalDescription>This action is permanent.</ModalDescription>
+    </ModalHeader>
+    <ModalFooter>
+      <ModalClose asChild><Button variant="ghost">Cancel</Button></ModalClose>
+      <Button variant="danger">Delete</Button>
+    </ModalFooter>
+  </ModalContent>
+</Modal>
+```
+
 ## Usage
 
 ```tsx
 import {
+  Button,
   Modal,
+  ModalClose,
   ModalTrigger,
   ModalContent,
   ModalHeader,
@@ -27,3 +143,10 @@ import {
   ModalFooter,
 } from "@altech-ui/react"
 ```
+
+`ModalContent` supports:
+
+- `variant`: `default | elevated | danger | success`
+- `size`: `xs | sm | md | lg | xl | cover | full`
+- `placement`: `center | top | bottom | left | right`
+- `backdrop`: `default | blur | transparent | dark`

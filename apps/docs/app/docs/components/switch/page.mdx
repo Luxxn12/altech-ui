@@ -8,7 +8,18 @@ export const metadata = {
 
 Use Switch for immediate on/off settings.
 
+## Quick Preview
+
 <SwitchDemo />
+
+## Preset Examples
+
+```tsx
+<Switch variant="primary" size="sm" />
+<Switch variant="primary" size="md" defaultChecked />
+<Switch variant="success" size="lg" defaultChecked />
+<Switch variant="danger" size="md" />
+```
 
 ## Usage
 
@@ -17,8 +28,11 @@ import { Switch } from "@altech-ui/react"
 
 <Switch defaultChecked />
 <Switch checked={enabled} onCheckedChange={setEnabled} />
+<Switch variant="success" size="lg" />
 ```
 
 ## Props
 
+- `variant?`: `primary | success | danger`
+- `size?`: `sm | md | lg`
 - Radix Switch `Root` props

@@ -11,7 +11,7 @@
   --altech-primary: #0f62fe;
   --altech-primary-foreground: #f8fbff;
   --altech-muted: #e9effa;
-  --altech-border: #d5dfef;
+  --altech-border: #bcc9dc;
   --altech-danger: #d92d20;
   --altech-success: #12b76a;
   --altech-warning: #f79009;
@@ -30,8 +30,260 @@
   --altech-warning: #fdb022;
 }
 
+/* Light mode: force visible border utilities used across demos/components */
+html:not(.dark) [class*="border-black/10"],
+body:not(.dark) [class*="border-black/10"],
+[data-theme="light"] [class*="border-black/10"],
+.light [class*="border-black/10"] {
+  border-color: rgba(71, 85, 105, 0.35) !important;
+}
+
+html:not(.dark) [class*="border-black/15"],
+body:not(.dark) [class*="border-black/15"],
+[data-theme="light"] [class*="border-black/15"],
+.light [class*="border-black/15"] {
+  border-color: rgba(71, 85, 105, 0.45) !important;
+}
+
 html,
 body {
   margin: 0;
   min-height: 100%;
+}
+
+/* Docs spacing: keep content below section headings from hugging the divider line */
+main :where(h2, h3) + :where(div, section, table, ul, ol, pre) {
+  margin-top: 0.9rem !important;
+}
+
+.altech-codeblock pre code {
+  opacity: 1;
+}
+
+[data-theme="light"] .altech-codeblock,
+html[data-theme="light"] .altech-codeblock,
+body[data-theme="light"] .altech-codeblock,
+.light .altech-codeblock {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(148, 163, 184, 0.9) !important;
+}
+
+[data-theme="light"] .altech-codeblock > div,
+html[data-theme="light"] .altech-codeblock > div,
+body[data-theme="light"] .altech-codeblock > div,
+.light .altech-codeblock > div {
+  background: #ffffff !important;
+  border-color: rgba(226, 232, 240, 1) !important;
+}
+
+[data-theme="light"] .altech-codeblock .altech-code-label,
+html[data-theme="light"] .altech-codeblock .altech-code-label,
+body[data-theme="light"] .altech-codeblock .altech-code-label,
+.light .altech-codeblock .altech-code-label {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .altech-codeblock .altech-code-btn,
+html[data-theme="light"] .altech-codeblock .altech-code-btn,
+body[data-theme="light"] .altech-codeblock .altech-code-btn,
+.light .altech-codeblock .altech-code-btn {
+  border-color: #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] .altech-codeblock .altech-code-btn:hover,
+html[data-theme="light"] .altech-codeblock .altech-code-btn:hover,
+body[data-theme="light"] .altech-codeblock .altech-code-btn:hover,
+.light .altech-codeblock .altech-code-btn:hover {
+  background: #f8fafc !important;
+}
+
+/* Always remove per-token background fills from Shiki so container bg controls the theme */
+.altech-codeblock .nextra-code span {
+  background-color: transparent !important;
+}
+
+[data-theme="light"] .altech-codeblock .nextra-code span,
+html[data-theme="light"] .altech-codeblock .nextra-code span,
+body[data-theme="light"] .altech-codeblock .nextra-code span,
+.light .altech-codeblock .nextra-code span {
+  color: var(--shiki-light, #0f172a) !important;
+}
+
+[data-theme="dark"] .altech-codeblock .nextra-code span,
+html[data-theme="dark"] .altech-codeblock .nextra-code span,
+body[data-theme="dark"] .altech-codeblock .nextra-code span,
+.dark .altech-codeblock .nextra-code span {
+  color: var(--shiki-dark, #dbeafe) !important;
+}
+
+[data-theme="dark"] .altech-codeblock,
+html[data-theme="dark"] .altech-codeblock,
+body[data-theme="dark"] .altech-codeblock,
+.dark .altech-codeblock {
+  background: #1f1f22 !important;
+}
+
+[data-theme="dark"] .altech-codeblock .altech-code-label,
+html[data-theme="dark"] .altech-codeblock .altech-code-label,
+body[data-theme="dark"] .altech-codeblock .altech-code-label,
+.dark .altech-codeblock .altech-code-label {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+[data-theme="dark"] .altech-codeblock .altech-code-btn,
+html[data-theme="dark"] .altech-codeblock .altech-code-btn,
+body[data-theme="dark"] .altech-codeblock .altech-code-btn,
+.dark .altech-codeblock .altech-code-btn {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Plain generated code in playground: always high contrast */
+.altech-codeblock pre[data-code-plain="true"] code,
+.altech-codeblock pre[data-code-plain="true"] code * {
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .altech-codeblock pre[data-code-plain="true"] code,
+[data-theme="light"] .altech-codeblock pre[data-code-plain="true"] code *,
+html[data-theme="light"] .altech-codeblock pre[data-code-plain="true"] code,
+html[data-theme="light"] .altech-codeblock pre[data-code-plain="true"] code *,
+body[data-theme="light"] .altech-codeblock pre[data-code-plain="true"] code,
+body[data-theme="light"] .altech-codeblock pre[data-code-plain="true"] code * {
+  color: #0f172a !important;
+}
+
+[data-theme="dark"] .altech-codeblock pre[data-code-plain="true"] code,
+[data-theme="dark"] .altech-codeblock pre[data-code-plain="true"] code *,
+html[data-theme="dark"] .altech-codeblock pre[data-code-plain="true"] code,
+html[data-theme="dark"] .altech-codeblock pre[data-code-plain="true"] code *,
+body[data-theme="dark"] .altech-codeblock pre[data-code-plain="true"] code,
+body[data-theme="dark"] .altech-codeblock pre[data-code-plain="true"] code * {
+  color: #dbeafe !important;
+}
+
+/* Final guard: force readable black text in explicit light mode */
+html[data-theme="light"] .altech-codeblock .altech-code-label,
+body[data-theme="light"] .altech-codeblock .altech-code-label,
+[data-theme="light"] .altech-codeblock .altech-code-label {
+  color: #111827 !important;
+}
+
+html[data-theme="light"] .altech-codeblock .altech-code-btn,
+body[data-theme="light"] .altech-codeblock .altech-code-btn,
+[data-theme="light"] .altech-codeblock .altech-code-btn {
+  color: #111827 !important;
+  border-color: #cbd5e1 !important;
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .altech-codeblock pre code:not(.altech-generated-code),
+html[data-theme="light"] .altech-codeblock pre code:not(.altech-generated-code) *,
+body[data-theme="light"] .altech-codeblock pre code:not(.altech-generated-code),
+body[data-theme="light"] .altech-codeblock pre code:not(.altech-generated-code) *,
+[data-theme="light"] .altech-codeblock pre code:not(.altech-generated-code),
+[data-theme="light"] .altech-codeblock pre code:not(.altech-generated-code) * {
+  color: #111827 !important;
+}
+
+/* Allow manual syntax tokens in playground generated code */
+html .altech-codeblock pre .altech-generated-code .text-\[\#f87171\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#f87171\] { color: #f87171 !important; }
+html .altech-codeblock pre .altech-generated-code .text-\[\#60a5fa\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#60a5fa\] { color: #60a5fa !important; }
+html .altech-codeblock pre .altech-generated-code .text-\[\#fbbf24\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#fbbf24\] { color: #fbbf24 !important; }
+html .altech-codeblock pre .altech-generated-code .text-\[\#cbd5e1\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#cbd5e1\] { color: #cbd5e1 !important; }
+html .altech-codeblock pre .altech-generated-code .text-\[\#a78bfa\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#a78bfa\] { color: #a78bfa !important; }
+html .altech-codeblock pre .altech-generated-code .text-\[\#34d399\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#34d399\] { color: #34d399 !important; }
+html .altech-codeblock pre .altech-generated-code .text-\[\#d7dde8\],
+body .altech-codeblock pre .altech-generated-code .text-\[\#d7dde8\] { color: #d7dde8 !important; }
+
+[data-theme="dark"] .altech-codeblock {
+  background: #1f1f22;
+  color: #d7dde8;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .altech-codeblock .altech-code-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .altech-codeblock .altech-code-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .altech-codeblock .nextra-code span {
+  background-color: var(--shiki-dark-bg) !important;
+  color: var(--shiki-dark) !important;
+}
+
+[data-theme="light"] .altech-codeblock .nextra-code span {
+  background-color: var(--shiki-light-bg) !important;
+  color: var(--shiki-light) !important;
+}
+
+.playground-panel input,
+.playground-panel select,
+.playground-panel textarea {
+  border-color: rgba(15, 23, 42, 0.22);
+}
+
+/* Light mode border contrast tune: some borders were too faint */
+html[data-theme="light"] .playground-panel,
+body[data-theme="light"] .playground-panel,
+[data-theme="light"] .playground-panel,
+.light .playground-panel {
+  border-color: #c7d2e3 !important;
+}
+
+html[data-theme="light"] .playground-panel .border-b,
+html[data-theme="light"] .playground-panel .border-r,
+body[data-theme="light"] .playground-panel .border-b,
+body[data-theme="light"] .playground-panel .border-r,
+[data-theme="light"] .playground-panel .border-b,
+[data-theme="light"] .playground-panel .border-r,
+.light .playground-panel .border-b,
+.light .playground-panel .border-r {
+  border-color: #d4dce8 !important;
+}
+
+html[data-theme="light"] .playground-panel .border,
+body[data-theme="light"] .playground-panel .border,
+[data-theme="light"] .playground-panel .border,
+.light .playground-panel .border {
+  border-color: #cbd5e1 !important;
+}
+
+html[data-theme="light"] .playground-panel input,
+html[data-theme="light"] .playground-panel select,
+html[data-theme="light"] .playground-panel textarea,
+body[data-theme="light"] .playground-panel input,
+body[data-theme="light"] .playground-panel select,
+body[data-theme="light"] .playground-panel textarea,
+[data-theme="light"] .playground-panel input,
+[data-theme="light"] .playground-panel select,
+[data-theme="light"] .playground-panel textarea,
+.light .playground-panel input,
+.light .playground-panel select,
+.light .playground-panel textarea {
+  border-color: #bfcbdc !important;
+}
+
+.dark .playground-panel input,
+.dark .playground-panel select,
+.dark .playground-panel textarea,
+[data-theme="dark"] .playground-panel input,
+[data-theme="dark"] .playground-panel select,
+[data-theme="dark"] .playground-panel textarea {
+  border-color: rgba(255, 255, 255, 0.32);
 }

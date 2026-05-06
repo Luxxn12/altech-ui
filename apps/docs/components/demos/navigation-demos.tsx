@@ -2,36 +2,54 @@
 
 import * as React from "react";
 import { Container, Flex, Grid, Stack, Tabs, TabsContent, TabsList, TabsTrigger } from "@altech-ui/react";
+import { GeneratedCode } from "@/components/generated-code";
 
 export function TabsDemo() {
   return (
-    <Tabs defaultValue="account" className="sm:max-w-xl">
-      <TabsList>
+    <Tabs defaultValue="account" className="pt-3 mx-auto sm:max-w-xl">
+      <TabsList variant="boxed">
         <TabsTrigger value="account">Account</TabsTrigger>
         <TabsTrigger value="billing">Billing</TabsTrigger>
       </TabsList>
-      <TabsContent value="account" className="rounded-lg border p-4 text-sm">Manage profile and login settings.</TabsContent>
-      <TabsContent value="billing" className="rounded-lg border p-4 text-sm">Manage invoices and payment methods.</TabsContent>
+      <TabsContent value="account" spacing="lg" className="rounded-lg border p-4 text-sm">Manage profile and login settings.</TabsContent>
+      <TabsContent value="billing" spacing="lg" className="rounded-lg border p-4 text-sm">Manage invoices and payment methods.</TabsContent>
     </Tabs>
   );
 }
 
 export function TabsPlayground() {
   const [tab, setTab] = React.useState("account");
-  const snippet = `<Tabs defaultValue="${tab}">...</Tabs>`;
+  const snippet = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@altech-ui/react";
+
+export function Example() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/15 dark:bg-white/5">
+    <Tabs defaultValue="${tab}">
+      <TabsList variant="line">
+        <TabsTrigger variant="line" value="account">Account</TabsTrigger>
+        <TabsTrigger variant="line" value="billing">Billing</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account" className="rounded-lg border p-4 text-sm mt-3">
+        Manage profile settings.
+      </TabsContent>
+      <TabsContent value="billing" className="rounded-lg border p-4 text-sm mt-3">
+        Manage payment settings.
+      </TabsContent>
+    </Tabs>
+  );
+}`;
+  return (
+    <div className="playground-panel overflow-hidden rounded-2xl border border-black/15 bg-white dark:border-white/25 dark:bg-white/5">
       <div className="grid min-h-[280px] grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px]">
         <div className="p-6 border-b border-black/10 lg:border-b-0 lg:border-r dark:border-white/15">
           <Tabs value={tab} onValueChange={setTab}>
-            <TabsList><TabsTrigger value="account">Account</TabsTrigger><TabsTrigger value="billing">Billing</TabsTrigger></TabsList>
+            <TabsList variant="line"><TabsTrigger variant="line" value="account">Account</TabsTrigger><TabsTrigger variant="line" value="billing">Billing</TabsTrigger></TabsList>
             <TabsContent value="account" className="rounded-lg border p-4 text-sm mt-3">Manage profile settings.</TabsContent>
             <TabsContent value="billing" className="rounded-lg border p-4 text-sm mt-3">Manage payment settings.</TabsContent>
           </Tabs>
         </div>
         <div className="space-y-3 p-5">
           <p className="text-sm">Active tab: <code>{tab}</code></p>
-          <pre className="overflow-x-auto rounded-lg border border-black/10 bg-black/[.03] p-3 text-xs"><code>{snippet}</code></pre>
+          <GeneratedCode code={snippet} />
         </div>
       </div>
     </div>
@@ -40,7 +58,7 @@ export function TabsPlayground() {
 
 export function LayoutDemo() {
   return (
-    <Container className="rounded-xl border py-4">
+    <Container className="mx-auto max-w-4xl rounded-xl border pt-7 pb-4">
       <Stack className="gap-3">
         <Flex className="items-center justify-between rounded-lg bg-black/[.04] p-3 text-sm dark:bg-white/[.08]">
           <span>Header</span>

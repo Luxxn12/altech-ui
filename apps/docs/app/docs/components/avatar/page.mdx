@@ -8,7 +8,18 @@ export const metadata = {
 
 Use Avatar for user identity visuals with image or fallback text.
 
+## Quick Preview
+
 <AvatarDemo />
+
+## Preset Examples
+
+```tsx
+<Avatar src="/team/alex.jpg" alt="Alex" variant="circle" size="sm" />
+<Avatar alt="Lukman" fallback="LU" variant="circle" size="md" />
+<Avatar alt="Design Team" fallback="DT" variant="rounded" size="lg" />
+<Avatar alt="Admin" fallback="AD" variant="square" size="xl" />
+```
 
 ## Usage
 
@@ -16,8 +27,8 @@ Use Avatar for user identity visuals with image or fallback text.
 import { Avatar } from "@altech-ui/react"
 
 <Avatar src="https://i.pravatar.cc/80?img=12" alt="User" />
-<Avatar alt="Lukman" fallback="LU" />
-<Avatar className="size-12" alt="Nina" fallback="NI" />
+<Avatar alt="Lukman" fallback="LU" variant="circle" size="md" />
+<Avatar alt="Nina" fallback="NI" variant="square" size="xl" />
 ```
 
 ## Props
@@ -25,4 +36,6 @@ import { Avatar } from "@altech-ui/react"
 - `src?`: `string`
 - `alt?`: `string`
 - `fallback?`: `ReactNode`
+- `variant?`: `circle | rounded | square`
+- `size?`: `xs | sm | md | lg | xl`
 - Native `div` props

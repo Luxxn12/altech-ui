@@ -1,4 +1,13 @@
-import { TableDemo, TablePlayground } from "@/components/demos/table-demos"
+import {
+  TableBorderedPricingDemo,
+  TableDemo,
+  TableLoadingDemo,
+  TableMinimalActivityDemo,
+  TablePaginationDemo,
+  TablePlayground,
+  TableSelectableRowsDemo,
+  TableStripedUsersDemo
+} from "@/components/demos/table-demos"
 
 export const metadata = {
   title: "Table"
@@ -8,11 +17,140 @@ export const metadata = {
 
 Table primitives support semantic structure and loading skeleton state.
 
+## Quick Preview
+
 <TableDemo />
+
+## Preset Examples
+
+```tsx
+<Table variant="default" density="md">...</Table>
+<Table variant="striped" density="md">...</Table>
+<Table variant="bordered" density="sm">...</Table>
+<Table variant="minimal" density="lg">...</Table>
+<TableBody isLoading loadingRows={4} loadingColumns={3} />
+```
 
 ## Interactive Playground
 
 <TablePlayground />
+
+## Striped Users Table
+
+<TableStripedUsersDemo />
+
+```tsx
+<Table variant="striped" density="md">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Email</TableHead>
+      <TableHead>Role</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Lukman</TableCell>
+      <TableCell>lukman@example.com</TableCell>
+      <TableCell>Admin</TableCell>
+      <TableCell><Badge variant="success">Active</Badge></TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Bordered Pricing Table
+
+<TableBorderedPricingDemo />
+
+```tsx
+<Table variant="bordered" density="sm">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Plan</TableHead>
+      <TableHead>Projects</TableHead>
+      <TableHead>Storage</TableHead>
+      <TableHead>Price</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow><TableCell>Starter</TableCell><TableCell>3</TableCell><TableCell>10 GB</TableCell><TableCell>$12/mo</TableCell></TableRow>
+    <TableRow><TableCell>Pro</TableCell><TableCell>Unlimited</TableCell><TableCell>100 GB</TableCell><TableCell>$24/mo</TableCell></TableRow>
+  </TableBody>
+</Table>
+```
+
+## Loading Skeleton Table
+
+<TableLoadingDemo />
+
+```tsx
+<Table variant="default" density="md">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Invoice</TableHead>
+      <TableHead>Date</TableHead>
+      <TableHead>Amount</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody isLoading loadingRows={4} loadingColumns={4} />
+</Table>
+```
+
+## Minimal Activity Table
+
+<TableMinimalActivityDemo />
+
+```tsx
+<Table variant="minimal" density="lg">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Event</TableHead>
+      <TableHead>User</TableHead>
+      <TableHead>When</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow><TableCell>Created API key</TableCell><TableCell>Lukman</TableCell><TableCell>2 min ago</TableCell></TableRow>
+  </TableBody>
+</Table>
+```
+
+## Table With Pagination Pattern
+
+<TablePaginationDemo />
+
+```tsx
+<Table variant="default" density="md">...</Table>
+<div className="flex items-center justify-between rounded-xl border px-3 py-2 text-sm">
+  <p>Showing 1-10 of 120 rows</p>
+  <div className="flex items-center gap-2">
+    <Button variant="outline" size="sm">Previous</Button>
+    <Button variant="outline" size="sm">Next</Button>
+  </div>
+</div>
+```
+
+## Selectable Rows Pattern
+
+<TableSelectableRowsDemo />
+
+```tsx
+const [selected, setSelected] = useState<string[]>([])
+
+<Table>
+  <TableHeader>...</TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><Checkbox /></TableCell>
+      <TableCell>Lukman</TableCell>
+      <TableCell>lukman@example.com</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
 
 ## Usage
 
@@ -24,7 +162,15 @@ import {
   TableRow,
   TableHead,
   TableCell,
+  Badge,
+  Button,
+  Checkbox
 } from "@altech-ui/react"
 ```
 
 Use `TableBody` with `isLoading` for loading placeholders.
+
+`Table` supports:
+
+- `variant`: `default | striped | bordered | minimal`
+- `density`: `sm | md | lg`
