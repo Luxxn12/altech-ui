@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import type { PropsWithChildren } from "react";
+import { cache, type PropsWithChildren } from "react";
 import { Manrope, Space_Grotesk } from "next/font/google";
-import Image from "next/image";
-import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import { DocsSearch } from "@/components/docs-search";
 
 import "./globals.css";
+
+const getCachedPageMap = cache(async () => getPageMap());
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -29,11 +29,10 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-  const pageMap = await getPageMap();
+  const pageMap = await getCachedPageMap();
 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head />
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <Layout
           pageMap={pageMap}
@@ -42,7 +41,9 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           navbar={
             <Navbar
               logo={
-                <Image src="/altech-logo.png" alt="Altech UI" width={180} height={52} priority />
+                <span style={{ fontFamily: "var(--font-heading)", fontWeight: 700 }}>
+                  Altech UI
+                </span>
               }
               projectLink="https://github.com/Luxxn12/altech-ui"
             />

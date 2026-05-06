@@ -1,4 +1,10 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import nextra from "nextra";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+process.chdir(__dirname);
 
 const withNextra = nextra({});
 

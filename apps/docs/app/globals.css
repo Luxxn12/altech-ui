@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "nextra-theme-docs/style.css";
 @source "../../../packages/react/src/**/*.{ts,tsx}";
-@source "../../../packages/react/dist/**/*.{js,mjs}";
-@source "../../node_modules/@altech-ui/react/dist/**/*.{js,mjs}";
 
 :root {
   --font-sans: "Manrope", "Segoe UI", sans-serif;
