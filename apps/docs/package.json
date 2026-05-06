@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "pnpm --filter @altech-ui/react build",
     "dev": "node ./scripts/run-next.mjs dev --turbopack",
+    "prebuild": "pnpm --filter @altech-ui/react build",
     "build": "node ./scripts/run-next.mjs build",
+    "prestart": "pnpm --filter @altech-ui/react build",
     "start": "node ./scripts/run-next.mjs start",
     "lint": "eslint .",
     "typecheck": "tsc -p tsconfig.json --noEmit"
