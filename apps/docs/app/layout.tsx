@@ -4,6 +4,7 @@ import { Manrope, Space_Grotesk } from "next/font/google";
 import { getPageMap } from "nextra/page-map";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import { DocsSearch } from "@/components/docs-search";
+import { DocsMenuPrefetch } from "@/components/docs-menu-prefetch";
 
 import "./globals.css";
 
@@ -57,6 +58,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
             </Footer>
           }
         >
+          <DocsMenuPrefetch pageMap={pageMap} />
           {children}
         </Layout>
       </body>
