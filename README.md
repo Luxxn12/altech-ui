@@ -2,6 +2,11 @@
 
 Altech UI is a monorepo for a React + TypeScript component library with a modern documentation site.
 
+## Preview
+
+![Altech UI Docs Preview](.github/assets/altech-ui-docs.webp)
+![Altech UI npm Preview](.github/assets/altech-ui-npm.webp)
+
 ## Why Developers Choose Altech UI
 
 Altech UI is built for teams that want to ship UI faster without losing styling control.
@@ -53,4 +58,3 @@ Core value:
 - Framer Motion
 - Radix UI (Dialog primitive)
 - class-variance-authority + clsx + tailwind-merge
-
